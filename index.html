@@ -73,7 +73,23 @@
     .photo-slot .ph-icon { font-size: 2rem; opacity: 0.4; }
     .divider { height: 1px; background: linear-gradient(90deg,transparent,rgba(192,132,252,0.2),transparent); margin: 0; }
     @media (max-width:700px) { nav ul { display: none; } .about-grid { grid-template-columns: 1fr; } .photo-grid { grid-template-columns: repeat(2,1fr); } .cta-section { padding: 2.5rem 1.5rem; } }
-  </style>
+  
+    /* ===== LIGHTBOX ===== */
+    .photo-slot { cursor: pointer; }
+    .photo-slot img { transition: transform 0.3s, opacity 0.3s; }
+    .photo-slot:hover img { transform: scale(1.04); opacity: 0.9; }
+    #lb-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.92); z-index:9999; align-items:center; justify-content:center; }
+    #lb-overlay.active { display:flex; }
+    #lb-img { max-width:90vw; max-height:88vh; border-radius:12px; box-shadow:0 0 60px rgba(192,132,252,0.3); }
+    #lb-close { position:absolute; top:1.2rem; right:1.5rem; font-size:2rem; color:#fff; cursor:pointer; opacity:0.7; line-height:1; }
+    #lb-close:hover { opacity:1; }
+    #lb-prev, #lb-next { position:absolute; top:50%; transform:translateY(-50%); font-size:2.5rem; color:#fff; cursor:pointer; opacity:0.6; user-select:none; padding:0.5rem 1rem; }
+    #lb-prev:hover, #lb-next:hover { opacity:1; }
+    #lb-prev { left:1rem; }
+    #lb-next { right:1rem; }
+    #lb-caption { position:absolute; bottom:1rem; left:0; right:0; text-align:center; color:rgba(255,255,255,0.6); font-size:0.85rem; }
+
+    </style>
 </head>
 <body>
 <nav><div class="logo">DJJCM</div><ul><li><a href="#about">Über mich</a></li><li><a href="#leistungen">Leistungen</a></li><li><a href="#equipment">Equipment</a></li><li><a href="#videos">Videos</a></li><li><a href="#musik">Musik</a></li><li><a href="#kontakt">Kontakt</a></li></ul></nav>
@@ -86,11 +102,49 @@
 <section id="equipment"><span class="section-label">❆ Equipment</span><h2 class="section-title">Professionelles Eigenes Setup</h2><p class="section-sub">Kein Verleih, kein Stress — ich bringe alles mit.</p><div class="equipment-grid"><div class="eq-card"><div class="eq-icon">🔊</div><div class="eq-info"><h4>Professionelles Audio</h4><p>Hochwertiges PA-System</p></div></div><div class="eq-card"><div class="eq-icon">💡</div><div class="eq-info"><h4>Lichtanlage</h4><p>LED-Show &amp; Moving Heads</p></div></div><div class="eq-card"><div class="eq-icon">🎤</div><div class="eq-info"><h4>Mikrofone</h4><p>Drahtlos, für Moderation</p></div></div><div class="eq-card"><div class="eq-icon">💨</div><div class="eq-info"><h4>Nebelmaschine</h4><p>Perfekte Tanzflächen-Atmosphäre</p></div></div><div class="eq-card"><div class="eq-icon">🋚️</div><div class="eq-info"><h4>DJ-Controller</h4><p>Profi-Setup für nahtlose Übergänge</p></div></div><div class="eq-card"><div class="eq-icon">🚚</div><div class="eq-info"><h4>Alles inklusive</h4><p>Aufbau, Betrieb &amp; Abbau</p></div></div></div></section>
 <div style="max-width:1100px;margin:0 auto;padding:0 2rem 5rem;"><span class="section-label">❆ Impressionen</span><h2 class="section-title" style="margin-bottom:0.5rem;">Einblicke in meine Events</h2><p style="color:var(--muted);font-size:0.9rem;margin-bottom:1.5rem;">Fotos von Hochzeiten, Aufbauten und Lichtatmosphäre</p><div class="photo-grid"><div class="photo-slot"><img src="foto1_setup_openair.jpg" alt="DJ Setup Open Air" loading="lazy"></div><div class="photo-slot"><img src="foto2_controller.jpg" alt="DJ Controller" loading="lazy"></div><div class="photo-slot"><img src="foto3_iglesia_luces.jpg" alt="Kirche mit Lichtatmosphäre" loading="lazy"></div><div class="photo-slot"><img src="foto4_dancefloor.jpg" alt="Dancefloor" loading="lazy"></div><div class="photo-slot"><img src="foto5_evento.jpg" alt="Event Übersicht" loading="lazy"></div><div class="photo-slot"><img src="foto6_iglesia2.jpg" alt="Hochzeit Stimmung" loading="lazy"></div></div></div>
 <div class="divider"></div>
-<section id="videos"><div class="inner"><span class="section-label">❆ Videos</span><h2 class="section-title">Sieh mich in Aktion</h2><p class="section-sub">Clips von meinen Events.</p><div class="videos-grid"><div class="video-placeholder"><div class="play-icon">▶</div><span>Video 1 — Hochzeit<br><small style="opacity:0.6">YouTube-Link einfügen</small></span></div><div class="video-placeholder"><div class="play-icon">▶</div><span>Video 2 — Equipment<br><small style="opacity:0.6">YouTube-Link einfügen</small></span></div><div class="video-placeholder"><div class="play-icon">▶</div><span>Video 3 — Après-Ski<br><small style="opacity:0.6">Optional</small></span></div></div></div></section>
+<section id="videos"><div class="inner"><span class="section-label">❆ Videos</span><h2 class="section-title">Sieh mich in Aktion</h2><p class="section-sub">Clips von meinen Events.</p><div class="videos-grid"><div class="video-placeholder"><video controls preload="metadata" style="width:100%;height:100%;border-radius:16px;background:#000;"><source src="video1_evento.mp4" type="video/mp4"><p style="color:#aaa;padding:1rem;">Video nicht verfügbar</p></video></div><div class="video-placeholder"><video controls preload="metadata" style="width:100%;height:100%;border-radius:16px;background:#000;"><source src="video2_equipo.mp4" type="video/mp4"><p style="color:#aaa;padding:1rem;">Video nicht verfügbar</p></video></div><div class="video-placeholder"><video controls preload="metadata" style="width:100%;height:100%;border-radius:16px;background:#000;"><source src="video3_pika.mp4" type="video/mp4"><p style="color:#aaa;padding:1rem;">Video nicht verfügbar</p></video></div></div></div></section>
 <div class="divider"></div>
 <section id="musik" style="padding-bottom:5rem;"><span class="section-label">❆ Musik &amp; Stil</span><h2 class="section-title" style="margin-bottom:2rem;">Mein Sound</h2><div class="music-section"><h3>🎵 Hör rein — meine Musik</h3><p>Von romantischen Balladen bis zu energiegeladenen Beats — mein Repertoire passt sich eurem Event an.</p><div class="sc-embed-placeholder"><div class="sc-icon">🎧</div><p style="margin:0;font-size:0.85rem;">SoundCloud Mix kommt bald — schreib mir für eine Hörprobe!</p></div><div style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;margin-top:1.5rem;"><span style="background:rgba(192,132,252,0.1);border:1px solid rgba(192,132,252,0.25);border-radius:999px;padding:0.4rem 1rem;font-size:0.82rem;color:var(--neon);">Pop &amp; Charts</span><span style="background:rgba(192,132,252,0.1);border:1px solid rgba(192,132,252,0.25);border-radius:999px;padding:0.4rem 1rem;font-size:0.82rem;color:var(--neon);">Schlager</span><span style="background:rgba(192,132,252,0.1);border:1px solid rgba(192,132,252,0.25);border-radius:999px;padding:0.4rem 1rem;font-size:0.82rem;color:var(--neon);">Electronic / Dance</span><span style="background:rgba(192,132,252,0.1);border:1px solid rgba(192,132,252,0.25);border-radius:999px;padding:0.4rem 1rem;font-size:0.82rem;color:var(--neon);">Après-Ski Hits</span><span style="background:rgba(192,132,252,0.1);border:1px solid rgba(192,132,252,0.25);border-radius:999px;padding:0.4rem 1rem;font-size:0.82rem;color:var(--neon);">Latin &amp; Reggaeton</span><span style="background:rgba(192,132,252,0.1);border:1px solid rgba(192,132,252,0.25);border-radius:999px;padding:0.4rem 1rem;font-size:0.82rem;color:var(--neon);">90s &amp; 2000s</span></div></div></section>
 <div class="divider"></div>
 <section id="kontakt" style="padding-bottom:5rem;"><div class="cta-section"><h2>Bereit für euer unvergessliches Event? 🎉</h2><p>Schreibt mir jetzt — ich melde mich innerhalb von 24 Stunden mit einem individuellen Angebot.</p><a href="mailto:jcmartinez7109@gmail.com" class="btn-primary" style="display:inline-block;">Angebot anfordern →</a><div class="contact-info"><div class="contact-item"><span>📍</span> Nürnberg &amp; Umgebung (bis 250 km)</div><div class="contact-item"><span>📧</span> jcmartinez7109@gmail.com</div><div class="contact-item"><span>🎣</span> Winter: Après-Ski Österreich</div></div></div></section>
 <footer><div class="footer-logo">DJJCM</div><p>© 2026 DJJCM · Nürnberg · Hochzeiten &amp; Private Events</p></footer>
+
+<script>
+(function(){
+  const overlay = document.getElementById('lb-overlay');
+  const lbImg   = document.getElementById('lb-img');
+  const lbCap   = document.getElementById('lb-caption');
+  const slots   = Array.from(document.querySelectorAll('.photo-slot img'));
+  let current   = 0;
+
+  function open(idx){
+    current = idx;
+    const img = slots[idx];
+    lbImg.src = img.src;
+    lbCap.textContent = img.alt || '';
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function close(){
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  function prev(){ open((current - 1 + slots.length) % slots.length); }
+  function next(){ open((current + 1) % slots.length); }
+
+  slots.forEach((img, i) => img.parentElement.addEventListener('click', () => open(i)));
+  document.getElementById('lb-close').addEventListener('click', close);
+  document.getElementById('lb-prev').addEventListener('click', e => { e.stopPropagation(); prev(); });
+  document.getElementById('lb-next').addEventListener('click', e => { e.stopPropagation(); next(); });
+  overlay.addEventListener('click', function(e){ if(e.target === overlay) close(); });
+  document.addEventListener('keydown', e => {
+    if(!overlay.classList.contains('active')) return;
+    if(e.key === 'Escape') close();
+    if(e.key === 'ArrowLeft') prev();
+    if(e.key === 'ArrowRight') next();
+  });
+})();
+</script>
+
 </body>
 </html>
