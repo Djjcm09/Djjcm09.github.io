@@ -591,7 +591,7 @@ nav ul { display: none; }
     <h2 class="section-title">Einblicke in meine Events</h2>
     <p class="section-sub">Fotos aus Hochzeiten, Aufbauten und besonderen Momenten. Klick auf ein Bild zum Vergrößern.</p>
 
-```
+
 <!-- Filter tabs -->
 <div class="filter-tabs">
   <button class="filter-btn active" data-filter="all">Alle</button>
@@ -632,7 +632,7 @@ nav ul { display: none; }
     <span class="photo-tag">Hochzeit</span>
   </div>
 </div>
-```
+
 
   </div>
 </div>
@@ -648,7 +648,7 @@ nav ul { display: none; }
     <p class="section-sub">Clips von meinen Events — ein Eindruck von Atmosphäre, Sound und Energie.</p>
     <div class="videos-grid">
 
-```
+
   <div class="video-card">
     <div class="video-thumb" id="vt1">
       <video id="v1" preload="metadata" playsinline>
@@ -828,4 +828,12 @@ const video = document.getElementById(‘v’ + n);
 const po    = document.getElementById(‘po’ + n);
 if (!video || !po) return;
 po.addEventListener(‘click’, () => {
-po.classList.add(’hid
+    po.classList.add('hidden');
+    video.play();
+  });
+  video.addEventListener('pause',  () => po.classList.remove('hidden'));
+  video.addEventListener('ended',  () => po.classList.remove('hidden'));
+});
+</script>
+</body>
+</html>
