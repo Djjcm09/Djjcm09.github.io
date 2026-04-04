@@ -256,6 +256,7 @@ function openLightbox(idx){
   overlay.classList.add('active');
   document.body.style.overflow = 'hidden';
  } 
+  window.openLightbox = openLightbox;
 function closeLightbox(){    
   overlay.classList.remove('active');    
    document.body.style.overflow = ''; 
