@@ -126,6 +126,73 @@
     font-size: 0.95rem;
   }
 }
+    /* ===== PRO EFECTOS ===== */
+
+.whatsapp-float{
+  animation: waFloat 3s ease-in-out infinite;
+}
+
+@keyframes waFloat{
+  0%{ transform: translateY(0);}
+  50%{ transform: translateY(-4px);}
+  100%{ transform: translateY(0);}
+}
+
+.whatsapp-float::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  border-radius:999px;
+  background: rgba(37,211,102,0.4);
+  filter: blur(12px);
+  opacity:0.6;
+  z-index:-1;
+}
+
+.photo-slot{
+  overflow:hidden;
+  position:relative;
+}
+
+.photo-slot img{
+  transition: transform .4s ease, filter .4s ease;
+}
+
+.photo-slot:hover img{
+  transform: scale(1.08);
+  filter: brightness(1.1);
+}
+
+.photo-slot::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top, rgba(0,0,0,0.4), transparent);
+  opacity:0;
+  transition: opacity .3s ease;
+}
+
+.photo-slot:hover::after{
+  opacity:1;
+}
+
+.video-card{
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.video-card:hover{
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.play-btn{
+  transform: scale(1);
+  transition: transform .3s ease;
+}
+
+.video-card:hover .play-btn{
+  transform: scale(1.15);
+}
     </style>
 </head>
 <body>
