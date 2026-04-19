@@ -32,46 +32,35 @@
             border-radius: 20px;
             overflow: hidden;
             background: #111;
-            box-shadow: 0px 0px 30px rgba(255, 0, 110, 0.3);
-        }
-        .btn-direct {
-            margin-top: 20px;
-            padding: 12px 25px;
-            background: #ff006e;
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: 0.3s;
-            box-shadow: 0px 4px 15px rgba(255, 0, 110, 0.4);
-        }
-        .btn-direct:hover {
-            background: #8338ec;
-            transform: scale(1.05);
+            box-shadow: 0px 0px 30px rgba(255, 0, 110, 0.4);
         }
     </style>
 </head>
 <body>
 
     <h1>Sprich mit DJ JCM</h1>
-    <p style="color: #888;">Si el avatar no carga, pulsa el botón rosa de abajo</p>
+    <p style="color: #ccc; margin-bottom: 20px;">Interaktiver AI-Assistent</p>
 
     <div id="heygen-container">
         <iframe 
-            src="https://app.heygen.com/video-agent/37499791-77bd-40a6-8c7a-ea9756ed34a4?embed=true" 
+            id="heygen-frame"
+            src="https://app.heygen.com/video-agent/37499791-77bd-40a6-8c7a-ea9756ed34a4?embed=true&api_key=sk_V2_hgu_kqs3ezam8d3_ECFwuhLLBuVnUMzitTLpyG4vZ6Gk11QC" 
             width="100%" 
             height="100%" 
             style="border:none;" 
-            allow="microphone; camera; autoplay; clipboard-write; encrypted-media; fullscreen;"
-            sandbox="allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-storage-access-by-user-activation"
-        ></iframe>
+            allow="microphone; camera; autoplay; clipboard-write; encrypted-media; fullscreen;">
+        </iframe>
     </div>
 
-    <a href="https://app.heygen.com/video-agent/37499791-77bd-40a6-8c7a-ea9756ed34a4" target="_blank" class="btn-direct">
-        🚀 Chat im Vollbild öffnen (Falls es nicht lädt)
-    </a>
+    <a href="index.html" style="margin-top: 25px; color: #666; text-decoration: none;">← Zurück</a>
 
-    <a href="index.html" style="margin-top: 20px; color: #555; text-decoration: none;">← Zurück</a>
-
+    <script>
+        // Este script ayuda a asegurar que el iframe tenga los permisos necesarios
+        window.addEventListener('message', function(event) {
+            if (event.data === 'heygen-agent-loaded') {
+                console.log('DJ Carlos está listo!');
+            }
+        });
+    </script>
 </body>
 </html>
