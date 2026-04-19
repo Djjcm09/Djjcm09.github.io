@@ -1,11 +1,69 @@
-<script type="module"
-    src="https://agent.d-id.com/v2/index.js"
-    data-mode="fabio"
-    data-client-key="ck_thSgfCORz8IB2hLJHIN61"
-    data-agent-id="v2_agt_wXQLvH7o"
-    data-name="did-agent"
-    data-monitor="true"
-    data-orientation="horizontal"
-    data-position="right"
-    data-open-mode="expanded">
-</script>as
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DJ JCM - Avatar Interaktiv</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            font-family: 'Inter', sans-serif;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            padding: 2rem;
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ff006e, #8338ec);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        p {
+            font-size: 1.2rem;
+            color: #aaa;
+            margin-bottom: 2rem;
+        }
+        .back-link {
+            color: #888;
+            text-decoration: none;
+            margin-top: 2rem;
+            transition: color 0.3s;
+        }
+        .back-link:hover {
+            color: #ff006e;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sprich mit DJ JCM</h1>
+        <p>Stelle Fragen zu Preisen, Equipment, Musik oder Terminen.<br>
+        Der Avatar erscheint unten rechts – einfach anklicken und los geht's!</p>
+        <a href="../index.html" class="back-link">← Zurück zur Startseite</a>
+    </div>
+
+    <!-- D-ID Agent Embed -->
+    <script type="module"
+        src="https://agent.d-id.com/v2/index.js"
+        data-mode="fabio"
+        data-client-key="ck_thSgfCORz8IB2hLJHIN61"
+        data-agent-id="v2_agt_wXQLvH7o"
+        data-name="did-agent"
+        data-monitor="true"
+        data-orientation="horizontal"
+        data-position="right"
+        data-open-mode="expanded">
+    </script>
+</body>
+</html>
