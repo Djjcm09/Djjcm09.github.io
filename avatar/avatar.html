@@ -17,10 +17,8 @@
             justify-content: center;
             min-height: 100vh;
             text-align: center;
-            overflow: hidden;
         }
 
-        /* Contenedor principal con efecto neón */
         .card {
             background: #111;
             padding: 50px 30px;
@@ -29,7 +27,6 @@
             box-shadow: 0px 0px 60px rgba(255, 0, 110, 0.3);
             max-width: 400px;
             width: 85%;
-            transition: 0.4s;
         }
 
         h1 {
@@ -48,7 +45,6 @@
             margin-bottom: 30px;
         }
 
-        /* Botón estilo DJ con brillo */
         .launch-btn {
             background: #ff006e;
             color: white;
@@ -59,27 +55,19 @@
             border-radius: 100px;
             cursor: pointer;
             box-shadow: 0px 10px 30px rgba(255, 0, 110, 0.5);
-            transition: all 0.3s ease;
+            transition: 0.3s;
             text-transform: uppercase;
-            letter-spacing: 2px;
         }
 
         .launch-btn:hover {
             background: #8338ec;
-            transform: scale(1.1);
-            box-shadow: 0px 10px 40px rgba(131, 56, 236, 0.6);
+            transform: scale(1.05);
         }
 
         .back-link {
             margin-top: 50px;
             color: #444;
             text-decoration: none;
-            font-size: 0.9rem;
-            transition: 0.3s;
-        }
-
-        .back-link:hover {
-            color: #ff006e;
         }
     </style>
 </head>
@@ -87,19 +75,18 @@
 
     <div class="card">
         <h1>DJ JCM AI</h1>
-        <p>Willkommen! Klicke auf den Button, um das Gespräch mit meinem interaktiven KI-Avatar zu starten.</p>
+        <p>Willkommen! Klicke auf den Button, um das Gespräch mit meinem KI-Avatar auf Deutsch zu starten.</p>
         
-        <button class="launch-btn" onclick="startAI()">Chat Starten</button>
+        <button class="launch-btn" onclick="startAI()">JETZT CHATTEN</button>
     </div>
 
-    <a href="index.html" class="back-link">← Zurück zur Webseite</a>
+    <a href="index.html" class="back-link">← Zurück</a>
 
     <script>
         function startAI() {
-            // URL con tu API KEY Premium y el ID de tu agente DJ Carlos
-            const agentUrl = "https://app.heygen.com/video-agent/37499791-77bd-40a6-8c7a-ea9756ed34a4?api_key=sk_V2_hgu_kqs3ezam8d3_ECFwuhLLBuVnUMzitTLpyG4vZ6Gk11QC";
+            // Este es el enlace directo a tu agente DJ Carlos
+            const agentUrl = "https://app.heygen.com/video-agent/37499791-77bd-40a6-8c7a-ea9756ed34a4";
             
-            // Abrimos en una ventana nueva para saltar los bloqueos de "cuadro negro"
             const width = 600;
             const height = 850;
             const left = (window.screen.width / 2) - (width / 2);
