@@ -18,56 +18,54 @@
             min-height: 100vh;
             text-align: center;
         }
-
         .card {
             background: #111;
             padding: 50px 30px;
             border-radius: 40px;
             border: 2px solid #ff006e;
-            box-shadow: 0px 0px 60px rgba(255, 0, 110, 0.3);
-            max-width: 400px;
+            box-shadow: 0px 0px 60px rgba(255, 0, 110, 0.4);
+            max-width: 450px;
             width: 85%;
         }
-
         h1 {
             background: linear-gradient(135deg, #ff006e, #8338ec);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            font-size: 3rem;
+            font-size: 2.8rem;
             margin: 0 0 15px 0;
             font-weight: 800;
         }
-
         p {
-            color: #aaa;
+            color: #ccc;
             font-size: 1.1rem;
             line-height: 1.6;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
         }
-
         .launch-btn {
             background: #ff006e;
             color: white;
             border: none;
-            padding: 20px 40px;
-            font-size: 1.3rem;
+            padding: 22px 45px;
+            font-size: 1.4rem;
             font-weight: bold;
             border-radius: 100px;
             cursor: pointer;
             box-shadow: 0px 10px 30px rgba(255, 0, 110, 0.5);
             transition: 0.3s;
             text-transform: uppercase;
+            text-decoration: none;
+            display: inline-block;
         }
-
         .launch-btn:hover {
             background: #8338ec;
             transform: scale(1.05);
+            box-shadow: 0px 10px 40px rgba(131, 56, 236, 0.6);
         }
-
         .back-link {
             margin-top: 50px;
-            color: #444;
+            color: #555;
             text-decoration: none;
+            font-size: 0.9rem;
         }
     </style>
 </head>
@@ -75,30 +73,14 @@
 
     <div class="card">
         <h1>DJ JCM AI</h1>
-        <p>Willkommen! Klicke auf den Button, um das Gespräch mit meinem KI-Avatar auf Deutsch zu starten.</p>
+        <p>Willkommen! Klicken Sie auf den Button unten, um das Gespräch mit meinem interaktiven KI-Avatar auf Deutsch zu beginnen.</p>
         
-        <button class="launch-btn" onclick="startAI()">JETZT CHATTEN</button>
+        <a href="https://app.heygen.com/video-agent/37499791-77bd-40a6-8c7a-ea9756ed34a4" target="_blank" class="launch-btn">
+            JETZT CHATTEN
+        </a>
     </div>
 
-    <a href="index.html" class="back-link">← Zurück</a>
-
-    <script>
-        function startAI() {
-            // Este es el enlace directo a tu agente DJ Carlos
-            const agentUrl = "https://app.heygen.com/video-agent/37499791-77bd-40a6-8c7a-ea9756ed34a4";
-            
-            const width = 600;
-            const height = 850;
-            const left = (window.screen.width / 2) - (width / 2);
-            const top = (window.screen.height / 2) - (height / 2);
-            
-            window.open(
-                agentUrl, 
-                "HeyGenDJJCM", 
-                `width=${width},height=${height},top=${top},left=${left},menubar=no,toolbar=no,location=no,status=no`
-            );
-        }
-    </script>
+    <a href="index.html" class="back-link">← Zurück zur Startseite</a>
 
 </body>
 </html>
