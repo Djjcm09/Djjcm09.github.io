@@ -25,7 +25,6 @@ nav a:hover{color:var(--neon);}
 .btn-primary:hover{opacity:.88;transform:translateY(-2px);}
 .btn-outline{padding:.85rem 2rem;background:transparent;color:var(--neon);font-weight:600;font-size:.92rem;border:1px solid rgba(192,132,252,.5);border-radius:8px;text-decoration:none;transition:border-color .2s,transform .2s;display:inline-block;}
 .btn-outline:hover{border-color:var(--neon);transform:translateY(-2px);}
-/* AVATAR */
 .av-wrap{position:relative;width:var(--av);flex-shrink:0;}
 .av-ring{position:relative;width:var(--av);height:var(--av);border-radius:50%;background:linear-gradient(145deg,#c084fc 0%,#4c1d95 50%,#818cf8 100%);padding:3px;animation:avG 3s ease-in-out infinite;}
 @keyframes avG{0%,100%{box-shadow:0 0 0 1px rgba(192,132,252,.15),0 0 26px rgba(192,132,252,.4),0 0 52px rgba(192,132,252,.12),0 16px 44px rgba(0,0,0,.6);}50%{box-shadow:0 0 0 1px rgba(192,132,252,.3),0 0 44px rgba(192,132,252,.65),0 0 80px rgba(192,132,252,.22),0 16px 44px rgba(0,0,0,.6);}}
@@ -43,7 +42,6 @@ nav a:hover{color:var(--neon);}
 .av-btn svg{width:13px;height:13px;flex-shrink:0;}
 .av-name{text-align:center;margin-top:9px;font-size:.74rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--neon);}
 .av-tag{text-align:center;font-size:.64rem;color:var(--muted);letter-spacing:.1em;margin-top:3px;}
-/* SECCIONES */
 section{padding:5rem 2rem;max-width:1100px;margin:0 auto;}
 .section-label{display:inline-block;color:var(--neon);font-size:.78rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin-bottom:.75rem;}
 .section-title{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;line-height:1.15;margin-bottom:1rem;}
@@ -69,51 +67,15 @@ section{padding:5rem 2rem;max-width:1100px;margin:0 auto;}
 .eq-icon{font-size:1.8rem;flex-shrink:0;}
 .eq-info h4{font-size:.95rem;font-weight:700;}
 .eq-info p{font-size:.8rem;color:var(--muted);}
-/* ══ GALERÍA FOTOS ══ */
-.photo-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:1rem;
-  margin-top:2rem;
-}
-.photo-slot{
-  border-radius:12px;
-  overflow:hidden;
-  border:1px solid rgba(192,132,252,.25);
-  background:var(--bg3);
-  cursor:pointer;
-  aspect-ratio:4/3;
-}
-.photo-slot img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
-  transition:transform .3s,opacity .3s;
-}
+.photo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2rem;}
+.photo-slot{border-radius:12px;overflow:hidden;border:1px solid rgba(192,132,252,.25);background:var(--bg3);cursor:pointer;aspect-ratio:4/3;}
+.photo-slot img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s,opacity .3s;}
 .photo-slot:hover img{transform:scale(1.04);opacity:.88;}
-/* ══ GALERÍA VÍDEOS ══ */
 #videos{background:var(--bg2);max-width:100%;padding:5rem 2rem;}
 #videos>.inner{max-width:1100px;margin:0 auto;}
 .videos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;}
-/* padding-bottom:56.25% = ratio 16:9, máxima compatibilidad Safari/iOS */
-.video-slot{
-  position:relative;
-  padding-bottom:56.25%;
-  height:0;
-  border-radius:16px;
-  overflow:hidden;
-  border:1px solid rgba(192,132,252,.15);
-  background:#000;
-}
-.video-slot video{
-  position:absolute;
-  top:0;left:0;
-  width:100%;height:100%;
-  display:block;
-  background:#000;
-}
-/* KONTAKT */
+.video-slot{position:relative;padding-bottom:56.25%;height:0;border-radius:16px;overflow:hidden;border:1px solid rgba(192,132,252,.15);background:#000;}
+.video-slot video{position:absolute;top:0;left:0;width:100%;height:100%;display:block;background:#000;}
 .cta-section{background:linear-gradient(135deg,rgba(192,132,252,.12) 0%,rgba(129,140,248,.08) 100%);border:1px solid rgba(192,132,252,.2);border-radius:24px;padding:4rem 3rem;text-align:center;}
 .cta-section h2{font-size:clamp(1.8rem,4vw,2.5rem);font-weight:800;margin-bottom:1rem;}
 .cta-section p{color:var(--muted);font-size:1.05rem;margin-bottom:2rem;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.7;}
@@ -122,7 +84,6 @@ section{padding:5rem 2rem;max-width:1100px;margin:0 auto;}
 .contact-item span{color:var(--neon);font-size:1.2rem;}
 footer{border-top:1px solid rgba(192,132,252,.1);padding:2rem;text-align:center;color:var(--muted);font-size:.82rem;}
 .footer-logo{font-size:1.2rem;font-weight:800;letter-spacing:.1em;background:linear-gradient(135deg,var(--neon),var(--neon2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:.5rem;}
-/* LIGHTBOX */
 #lb-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:9999;align-items:center;justify-content:center;}
 #lb-overlay.active{display:flex;}
 #lb-img{max-width:90vw;max-height:88vh;border-radius:12px;box-shadow:0 0 60px rgba(192,132,252,.3);}
@@ -150,7 +111,6 @@ footer{border-top:1px solid rgba(192,132,252,.1);padding:2rem;text-align:center;
   </ul>
 </nav>
 
-<!-- HERO + AVATAR (sin tocar) -->
 <section class="hero" id="home">
   <div class="hero-text">
     <div class="hero-tag">DJ für Hochzeiten &amp; Private Events</div>
@@ -236,36 +196,36 @@ footer{border-top:1px solid rgba(192,132,252,.1);padding:2rem;text-align:center;
 
 <div class="divider"></div>
 
-<!-- ══ GALERÍA FOTOS — 6 contenedores, 1 por foto, ruta relativa exacta ══ -->
+<!-- ══ GALERÍA FOTOS — rutas reales en /fotos ══ -->
 <div style="max-width:1100px;margin:0 auto;padding:0 2rem 5rem;">
   <span class="section-label">❆ Impressionen</span>
   <h2 class="section-title" style="margin-bottom:.5rem;">Einblicke in meine Events</h2>
   <p style="color:var(--muted);font-size:.9rem;margin-bottom:1.5rem;">Fotos von Hochzeiten, Aufbauten und Lichtatmosphäre</p>
   <div class="photo-grid">
     <div class="photo-slot">
-      <img src="foto1_setup_openair.jpg" alt="DJ Setup Open Air" loading="lazy">
+      <img src="fotos/setup-open-air.jpg" alt="DJ Setup Open Air" loading="lazy">
     </div>
     <div class="photo-slot">
-      <img src="foto2_controller.jpg" alt="DJ Controller" loading="lazy">
+      <img src="fotos/dj-controller.jpeg" alt="DJ Controller" loading="lazy">
     </div>
     <div class="photo-slot">
-      <img src="foto3_iglesia_luces.jpg" alt="Kirche mit Lichtatmosphäre" loading="lazy">
+      <img src="fotos/iglesia-luces.jpg" alt="Kirche mit Lichtatmosphäre" loading="lazy">
     </div>
     <div class="photo-slot">
-      <img src="foto4_dancefloor.jpg" alt="Dancefloor" loading="lazy">
+      <img src="fotos/dancefloor.jpg" alt="Dancefloor" loading="lazy">
     </div>
     <div class="photo-slot">
-      <img src="foto5_evento.jpg" alt="Event Übersicht" loading="lazy">
+      <img src="fotos/event-ubersicht.jpeg" alt="Event Übersicht" loading="lazy">
     </div>
     <div class="photo-slot">
-      <img src="foto6_iglesia2.jpg" alt="Hochzeit Stimmung" loading="lazy">
+      <img src="fotos/hochzeit-stimmung.jpeg" alt="Hochzeit Stimmung" loading="lazy">
     </div>
   </div>
 </div>
 
 <div class="divider"></div>
 
-<!-- ══ GALERÍA VÍDEOS — 3 contenedores, 1 por vídeo, ruta relativa exacta ══ -->
+<!-- ══ GALERÍA VÍDEOS — rutas reales en /videos ══ -->
 <section id="videos">
   <div class="inner">
     <span class="section-label">❆ Videos</span>
@@ -274,20 +234,26 @@ footer{border-top:1px solid rgba(192,132,252,.1);padding:2rem;text-align:center;
     <div class="videos-grid">
 
       <div class="video-slot">
-        <video controls playsinline preload="metadata" poster="foto1_setup_openair.jpg">
-          <source src="video1_evento.mp4" type="video/mp4">
+        <video controls playsinline preload="metadata" poster="fotos/setup-open-air.jpg">
+          <source src="videos/bienvenida.mp4" type="video/mp4">
         </video>
       </div>
 
       <div class="video-slot">
-        <video controls playsinline preload="metadata" poster="foto2_controller.jpg">
-          <source src="video2_equipo.mp4" type="video/mp4">
+        <video controls playsinline preload="metadata" poster="fotos/dj-controller.jpeg">
+          <source src="videos/equipment-setup.mp4" type="video/mp4">
         </video>
       </div>
 
       <div class="video-slot">
-        <video controls playsinline preload="metadata" poster="foto4_dancefloor.jpg">
-          <source src="video3_pika.mp4" type="video/mp4">
+        <video controls playsinline preload="metadata" poster="fotos/dancefloor.jpg">
+          <source src="videos/event-highlight.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="video-slot">
+        <video controls playsinline preload="metadata" poster="fotos/hochzeit-stimmung.jpeg">
+          <source src="videos/spezialeffekte.mp4" type="video/mp4">
         </video>
       </div>
 
@@ -315,7 +281,6 @@ footer{border-top:1px solid rgba(192,132,252,.1);padding:2rem;text-align:center;
   <p>© 2026 DJJCM · Nürnberg · Hochzeiten &amp; Private Events</p>
 </footer>
 
-<!-- LIGHTBOX — HTML en el DOM -->
 <div id="lb-overlay">
   <span id="lb-close">✕</span>
   <span id="lb-prev">‹</span>
@@ -324,11 +289,9 @@ footer{border-top:1px solid rgba(192,132,252,.1);padding:2rem;text-align:center;
   <div id="lb-caption"></div>
 </div>
 
-<!-- WHATSAPP -->
 <a href="https://wa.me/4915252822834?text=Hallo%20Carlos,%20ich%20suche%20einen%20DJ%20f%C3%BCr%20mein%20Event.%0ADatum:%20%0AOrt:%20%0AArt%20der%20Veranstaltung:%20" target="_blank" style="position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;padding:15px 20px;border-radius:50px;text-decoration:none;font-weight:bold;box-shadow:0 4px 10px rgba(0,0,0,.3);z-index:1000;display:flex;align-items:center;gap:8px;">💬 Jetzt schreiben</a>
 
 <script>
-/* LIGHTBOX */
 (function(){
   var ov=document.getElementById('lb-overlay');
   var img=document.getElementById('lb-img');
@@ -350,7 +313,6 @@ footer{border-top:1px solid rgba(192,132,252,.1);padding:2rem;text-align:center;
   });
 })();
 
-/* AVATAR AUDIO */
 (function(){
   var overlay=document.getElementById('av-overlay');
   var btn=document.getElementById('av-btn');
