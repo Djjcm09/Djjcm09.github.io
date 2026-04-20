@@ -227,6 +227,19 @@
     </style>
 </head>
 <body>
+  <!-- ===== VIDEO BIENVENIDA ===== -->
+<section id="bienvenida" style="width:100%;background:#000;display:flex;justify-content:center;align-items:center;padding:0;margin:0;position:relative;">
+  <video
+    id="welcome-video"
+    autoplay
+    muted
+    playsinline
+    style="width:100%;max-width:960px;display:block;"
+    onended="document.getElementById('welcome-video').style.display='none';document.getElementById('bienvenida').style.display='none';"
+  >
+    <source src="videos/bienvenida.mp4" type="video/mp4">
+  </video>
+</section>
 <nav><div class="logo">DJJCM</div><ul><li><a href="#about">Über mich</a></li><li><a href="#leistungen">Leistungen</a></li><li><a href="#equipment">Equipment</a></li><li><a href="#videos">Videos</a></li><li><a href="#musik">Musik</a></li><li><a href="#kontakt">Kontakt</a></li></ul></nav>
 <section class="hero" id="home"><div class="hero-tag">❆ DJ für Hochzeiten &amp; Private Events</div><h1>DJJCM</h1><p>Professioneller DJ aus Nürnberg — für unvergessliche Hochzeiten, exklusive Privatevents und mitreißende Après-Ski-Nächte in den Alpen.</p><div class="hero-btns"><a href="#kontakt" class="btn-primary">Jetzt anfragen →</a><a href="#videos" class="btn-outline">Videos ansehen</a></div></section>
 <div class="divider"></div>
