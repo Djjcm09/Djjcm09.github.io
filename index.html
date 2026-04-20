@@ -1,304 +1,261 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DJJCM – Hochzeiten & Private Events</title>
-  <style>
-    :root { --neon: #c084fc; --neon2: #818cf8; --bg: #050508; --bg2: #0f0f1a; --bg3: #16162a; --text: #f1f1f1; --muted: #9ca3af; }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1rem 2.5rem; background: rgba(5,5,8,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(192,132,252,0.15); }
-    .logo { font-size: 1.5rem; font-weight: 800; letter-spacing: 0.1em; background: linear-gradient(135deg, var(--neon), var(--neon2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    nav ul { list-style: none; display: flex; gap: 2rem; }
-    nav a { color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
-    nav a:hover { color: var(--neon); }
-    .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 6rem 2rem 4rem; position: relative; overflow: hidden; }
-    .hero::before { content: ''; position: absolute; width: 700px; height: 700px; background: radial-gradient(circle, rgba(192,132,252,0.18) 0%, transparent 70%); top: 50%; left: 50%; transform: translate(-50%,-50%); pointer-events: none; }
-    .hero-tag { display: inline-block; padding: 0.35rem 1rem; border: 1px solid rgba(192,132,252,0.4); border-radius: 999px; font-size: 0.78rem; letter-spacing: 0.15em; color: var(--neon); text-transform: uppercase; margin-bottom: 1.5rem; }
-    .hero h1 { font-size: clamp(3.5rem,10vw,7rem); font-weight: 900; background: linear-gradient(135deg,#fff 30%,var(--neon) 70%,var(--neon2) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 1.5rem; }
-    .hero p { font-size: 1.2rem; color: var(--muted); max-width: 560px; line-height: 1.7; margin-bottom: 2.5rem; }
-    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
-    .btn-primary { padding: 0.85rem 2rem; background: linear-gradient(135deg,var(--neon),var(--neon2)); color: #fff; font-weight: 700; font-size: 0.95rem; border: none; border-radius: 8px; text-decoration: none; transition: opacity 0.2s,transform 0.2s; }
-    .btn-primary:hover { opacity: 0.88; transform: translateY(-2px); }
-    .btn-outline { padding: 0.85rem 2rem; background: transparent; color: var(--neon); font-weight: 600; font-size: 0.95rem; border: 1px solid rgba(192,132,252,0.5); border-radius: 8px; text-decoration: none; transition: border-color 0.2s,transform 0.2s; }
-    .btn-outline:hover { border-color: var(--neon); transform: translateY(-2px); }
-    section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
-    .section-label { display: inline-block; color: var(--neon); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.75rem; }
-    .section-title { font-size: clamp(1.8rem,4vw,2.8rem); font-weight: 800; line-height: 1.15; margin-bottom: 1rem; }
-    .section-sub { color: var(--muted); font-size: 1.05rem; line-height: 1.7; max-width: 620px; margin-bottom: 3rem; }
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
-    .about-text p { color: var(--muted); line-height: 1.8; margin-bottom: 1rem; }
-    .about-text strong { color: var(--text); }
-    .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
-    .stat-card { background: var(--bg3); border: 1px solid rgba(192,132,252,0.15); border-radius: 12px; padding: 1.5rem; text-align: center; }
-    .stat-number { font-size: 2.2rem; font-weight: 900; background: linear-gradient(135deg,var(--neon),var(--neon2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .stat-label { font-size: 0.82rem; color: var(--muted); margin-top: 0.25rem; }
-    #leistungen { background: var(--bg2); max-width: 100%; padding: 5rem 2rem; }
-    #leistungen > .inner { max-width: 1100px; margin: 0 auto; }
-    .services-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 1.5rem; }
-    .service-card { background: var(--bg3); border: 1px solid rgba(192,132,252,0.12); border-radius: 16px; padding: 2rem; transition: border-color 0.3s,transform 0.3s; }
-    .service-card:hover { border-color: rgba(192,132,252,0.4); transform: translateY(-4px); }
-    .service-icon { font-size: 2.2rem; margin-bottom: 1rem; }
-    .service-card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.6rem; }
-    .service-card p { color: var(--muted); font-size: 0.9rem; line-height: 1.7; }
-    .equipment-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap: 1.25rem; margin-top: 2.5rem; }
-    .eq-card { background: var(--bg2); border: 1px solid rgba(192,132,252,0.1); border-radius: 12px; padding: 1.5rem 1.25rem; display: flex; align-items: center; gap: 1rem; }
-    .eq-icon { font-size: 1.8rem; flex-shrink: 0; }
-    .eq-info h4 { font-size: 0.95rem; font-weight: 700; }
-    .eq-info p { font-size: 0.8rem; color: var(--muted); }
-    #videos { background: var(--bg2); max-width: 100%; padding: 5rem 2rem; }
-    #videos > .inner { max-width: 1100px; margin: 0 auto; }
-    .videos-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); gap: 1.5rem; }
-    .video-placeholder { background: var(--bg3); border: 1px solid rgba(192,132,252,0.15); border-radius: 16px; aspect-ratio: 16/9; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem; transition: border-color 0.3s; overflow: hidden; position: relative; }
-    .video-placeholder .play-icon { width: 56px; height: 56px; background: rgba(192,132,252,0.2); border: 2px solid rgba(192,132,252,0.5); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; }
-    .video-placeholder span { color: var(--muted); font-size: 0.85rem; text-align: center; padding: 0 1rem; }
-    .music-section { background: var(--bg3); border: 1px solid rgba(192,132,252,0.15); border-radius: 20px; padding: 3rem; text-align: center; }
-    .music-section h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 0.75rem; }
-    .music-section p { color: var(--muted); margin-bottom: 2rem; max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.7; }
-    .sc-embed-placeholder { background: rgba(0,0,0,0.4); border: 1px dashed rgba(192,132,252,0.3); border-radius: 12px; padding: 2.5rem; color: var(--muted); font-size: 0.9rem; margin-bottom: 1.5rem; }
-    .sc-embed-placeholder .sc-icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
-    .cta-section { background: linear-gradient(135deg,rgba(192,132,252,0.12) 0%,rgba(129,140,248,0.08) 100%); border: 1px solid rgba(192,132,252,0.2); border-radius: 24px; padding: 4rem 3rem; text-align: center; }
-    .cta-section h2 { font-size: clamp(1.8rem,4vw,2.5rem); font-weight: 800; margin-bottom: 1rem; }
-    .cta-section p { color: var(--muted); font-size: 1.05rem; margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto; line-height: 1.7; }
-    .contact-info { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem; }
-    .contact-item { display: flex; align-items: center; gap: 0.6rem; color: var(--muted); font-size: 0.9rem; }
-    .contact-item span { color: var(--neon); font-size: 1.2rem; }
-    footer { border-top: 1px solid rgba(192,132,252,0.1); padding: 2rem; text-align: center; color: var(--muted); font-size: 0.82rem; }
-    .footer-logo { font-size: 1.2rem; font-weight: 800; letter-spacing: 0.1em; background: linear-gradient(135deg,var(--neon),var(--neon2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 0.5rem; }
-    .photo-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; margin-top: 2rem; }
-    .photo-slot { aspect-ratio: 4/3; background: var(--bg3); border: 1px dashed rgba(192,132,252,0.25); border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; color: var(--muted); font-size: 0.8rem; overflow: hidden; }
-    .photo-slot img { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; }
-    .photo-slot .ph-icon { font-size: 2rem; opacity: 0.4; }
-    .divider { height: 1px; background: linear-gradient(90deg,transparent,rgba(192,132,252,0.2),transparent); margin: 0; }
-    @media (max-width:700px) { nav ul { display: none; } .about-grid { grid-template-columns: 1fr; } .photo-grid { grid-template-columns: repeat(2,1fr); } .cta-section { padding: 2.5rem 1.5rem; } }
-  
-    /* ===== LIGHTBOX ===== */
-    .photo-slot { cursor: pointer; }
-    .photo-slot img { transition: transform 0.3s, opacity 0.3s; }
-    .photo-slot:hover img { transform: scale(1.04); opacity: 0.9; }
-    #lb-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.92); z-index:9999; align-items:center; justify-content:center; }
-    #lb-overlay.active { display:flex; }
-    #lb-img { max-width:90vw; max-height:88vh; border-radius:12px; box-shadow:0 0 60px rgba(192,132,252,0.3); }
-    #lb-close { position:absolute; top:1.2rem; right:1.5rem; font-size:2rem; color:#fff; cursor:pointer; opacity:0.7; line-height:1; }
-    #lb-close:hover { opacity:1; }
-    #lb-prev, #lb-next { position:absolute; top:50%; transform:translateY(-50%); font-size:2.5rem; color:#fff; cursor:pointer; opacity:0.6; user-select:none; padding:0.5rem 1rem; }
-    #lb-prev:hover, #lb-next:hover { opacity:1; }
-    #lb-prev { left:1rem; }
-    #lb-next { right:1rem; }
-    #lb-caption { position:absolute; bottom:1rem; left:0; right:0; text-align:center; color:rgba(255,255,255,0.6); font-size:0.85rem; }
-.whatsapp-float{
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-  z-index: 9998;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 14px 18px;
-  border-radius: 999px;
-  background: #25D366;
-  color: #fff;
-<section id="galerie"><div style="max-width:1100px;margin:0 auto;padding:0 2rem 5rem;"><span class="section-label">✦ Impressionen</span><h2 class="section-title" style="margin-bottom:0.5rem;">Einblicke in meine Events</h2><p style="color:var(--muted);margin-bottom:2rem;">Fotos von Hochzeiten, Aufbauten und Lichtatmosphäre</p><div class="photo-grid"><div class="photo-slot"><a href="fotos/setup-open-air.jpg" target="_blank" rel="noopener noreferrer"><img src="fotos/setup-open-air.jpg" alt="DJ Setup Open Air"></a></div><div class="photo-slot"><a href="fotos/dj-controller.jpeg" target="_blank" rel="noopener noreferrer"><img src="fotos/dj-controller.jpeg" alt="DJ Controller"></a></div><div class="photo-slot"><a href="fotos/iglesia-luces.jpg" target="_blank" rel="noopener noreferrer"><img src="fotos/iglesia-luces.jpg" alt="Kirche mit Lichtatmosphäre"></a></div><div class="photo-slot"><a href="fotos/dancefloor.jpg" target="_blank" rel="noopener noreferrer"><img src="fotos/dancefloor.jpg" alt="Dancefloor"></a></div><div class="photo-slot"><a href="fotos/event-ubersicht.jpeg" target="_blank" rel="noopener noreferrer"><img src="fotos/event-ubersicht.jpeg" alt="Event Übersicht"></a></div><div class="photo-slot"><a href="fotos/hochzeit-stimmung.jpeg" target="_blank" rel="noopener noreferrer"><img src="fotos/hochzeit-stimmung.jpeg" alt="Hochzeit Stimmung"></a></div></div></div></section>
-  }
-
-.whatsapp-float:hover{
-  transform: translateY(-2px);
-  box-shadow: 0 14px 36px rgba(37,211,102,0.45);
-}
-
-.whatsapp-float svg{
-  width: 22px;
-  height: 22px;
-  fill: currentColor;
-  flex-shrink: 0;
-}
-
-@media (max-width: 700px){
-  .whatsapp-float{
-    right: 14px;
-    bottom: 14px;
-    padding: 12px 15px;
-    font-size: 0.95rem;
-  }
-}
-    /* ===== PRO EFECTOS ===== */
-
-.whatsapp-float{
-  animation: waFloat 3s ease-in-out infinite;
-}
-
-@keyframes waFloat{
-  0%{ transform: translateY(0);}
-  50%{ transform: translateY(-4px);}
-  100%{ transform: translateY(0);}
-}
-
-.whatsapp-float::after{
-  content:'';
-  position:absolute;
-  inset:0;
-  border-radius:999px;
-  background: rgba(37,211,102,0.4);
-  filter: blur(12px);
-  opacity:0.6;
-  z-index:-1;
-}
-
-.photo-slot{
-  overflow:hidden;
-  position:relative;
-}
-.photo-slot a{
-  display:block;
-}
-.photo-slot img{
-  transition: transform .4s ease, filter .4s ease;
-}
-
-.photo-slot:hover img{
-  transform: scale(1.08);
-  filter: brightness(1.1);
-}
-
-.photo-slot::after{
-  content:'';
-  position:absolute;
-  inset:0;
-  pointer-events: none;
-  background:linear-gradient(to top, rgba(0,0,0,0.4), transparent);
-  opacity:0;
-  transition: opacity .3s ease;
-}
-
-.photo-slot:hover::after{
-  opacity:1;
-}
-
-.video-card{
-  transition: transform .3s ease, box-shadow .3s ease;
-}
-
-.video-card:hover{
-  transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-}
-
-.play-btn{
-  transform: scale(1);
-  transition: transform .3s ease;
-}
-
-.video-card:hover .play-btn{
-  transform: scale(1.15);
-}
-    /* ===== PRO ENTRADA SUAVE ===== */
-
-@keyframes fadeUp{
-  from{
-    opacity:0;
-    transform:translateY(18px);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-
-.photo-slot,
-.video-card,
-.whatsapp-float{
-  animation: fadeUp .7s ease both;
-}
-
-.photo-slot:nth-child(1){ animation-delay:.05s; }
-.photo-slot:nth-child(2){ animation-delay:.1s; }
-.photo-slot:nth-child(3){ animation-delay:.15s; }
-.photo-slot:nth-child(4){ animation-delay:.2s; }
-.photo-slot:nth-child(5){ animation-delay:.25s; }
-.photo-slot:nth-child(6){ animation-delay:.3s; }
-
-.video-card:nth-child(1){ animation-delay:.1s; }
-.video-card:nth-child(2){ animation-delay:.2s; }
-.video-card:nth-child(3){ animation-delay:.3s; }
-
-.whatsapp-float{ animation-delay:.45s; }
-    </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>DJJCM – Hochzeiten & Private Events</title>
+<style>
+:root{--neon:#c084fc;--neon2:#818cf8;--bg:#050508;--bg2:#0f0f1a;--bg3:#16162a;--text:#f1f1f1;--muted:#9ca3af;--av:240px;}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1rem 2.5rem;background:rgba(5,5,8,.88);backdrop-filter:blur(12px);border-bottom:1px solid rgba(192,132,252,.15);}
+.logo{font-size:1.5rem;font-weight:800;letter-spacing:.1em;background:linear-gradient(135deg,var(--neon),var(--neon2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+nav ul{list-style:none;display:flex;gap:2rem;}
+nav a{color:var(--muted);text-decoration:none;font-size:.9rem;transition:color .2s;}
+nav a:hover{color:var(--neon);}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;gap:4rem;padding:6rem 5% 4rem;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;width:700px;height:700px;background:radial-gradient(circle,rgba(192,132,252,.18) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;}
+.hero-text{flex:1;max-width:520px;}
+.hero-tag{display:inline-block;padding:.35rem 1rem;border:1px solid rgba(192,132,252,.4);border-radius:999px;font-size:.78rem;letter-spacing:.15em;color:var(--neon);text-transform:uppercase;margin-bottom:1.5rem;}
+.hero h1{font-size:clamp(2.8rem,8vw,5.5rem);font-weight:900;background:linear-gradient(135deg,#fff 30%,var(--neon) 70%,var(--neon2) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:1.2rem;}
+.hero p{font-size:1rem;color:var(--muted);max-width:440px;line-height:1.7;margin-bottom:2rem;}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;}
+.btn-primary{padding:.85rem 2rem;background:linear-gradient(135deg,var(--neon),var(--neon2));color:#fff;font-weight:700;font-size:.92rem;border:none;border-radius:8px;text-decoration:none;transition:opacity .2s,transform .2s;display:inline-block;}
+.btn-primary:hover{opacity:.88;transform:translateY(-2px);}
+.btn-outline{padding:.85rem 2rem;background:transparent;color:var(--neon);font-weight:600;font-size:.92rem;border:1px solid rgba(192,132,252,.5);border-radius:8px;text-decoration:none;transition:border-color .2s,transform .2s;display:inline-block;}
+.btn-outline:hover{border-color:var(--neon);transform:translateY(-2px);}
+.av-wrap{position:relative;width:var(--av);flex-shrink:0;}
+.av-ring{position:relative;width:var(--av);height:var(--av);border-radius:50%;background:linear-gradient(145deg,#c084fc 0%,#4c1d95 50%,#818cf8 100%);padding:3px;animation:avG 3s ease-in-out infinite;}
+@keyframes avG{0%,100%{box-shadow:0 0 0 1px rgba(192,132,252,.15),0 0 26px rgba(192,132,252,.4),0 0 52px rgba(192,132,252,.12),0 16px 44px rgba(0,0,0,.6);}50%{box-shadow:0 0 0 1px rgba(192,132,252,.3),0 0 44px rgba(192,132,252,.65),0 0 80px rgba(192,132,252,.22),0 16px 44px rgba(0,0,0,.6);}}
+.av-inner{width:100%;height:100%;border-radius:50%;overflow:hidden;background:#0d0d14;position:relative;}
+.av-inner iframe{position:absolute;height:100%;width:calc(var(--av)*16/9);top:0;left:50%;transform:translateX(-50%);border:none;pointer-events:none;}
+.av-overlay{position:absolute;inset:0;border-radius:50%;background:rgba(5,5,8,.55);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .3s;z-index:5;}
+.av-overlay.off{background:transparent;pointer-events:none;}
+.av-hint{display:flex;flex-direction:column;align-items:center;gap:5px;color:var(--neon);font-size:.64rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;text-align:center;line-height:1.4;}
+.av-hint svg{width:26px;height:26px;stroke:var(--neon);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 6px rgba(192,132,252,.7));}
+.av-live{position:absolute;top:12px;right:12px;background:#e02020;color:#fff;font-size:.58rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;padding:3px 8px;border-radius:50px;display:flex;align-items:center;gap:4px;z-index:10;}
+.live-dot{width:5px;height:5px;border-radius:50%;background:#fff;animation:blink 1.2s ease-in-out infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.12}}
+.av-btn{display:flex;align-items:center;justify-content:center;gap:7px;margin:11px auto 0;padding:7px 17px;border-radius:50px;border:1px solid var(--neon);background:rgba(5,5,8,.9);color:var(--neon);font-size:.67rem;font-weight:700;letter-spacing:.11em;text-transform:uppercase;cursor:pointer;width:fit-content;transition:background .2s,color .2s;backdrop-filter:blur(6px);}
+.av-btn:hover{background:var(--neon);color:#0a0a0f;}
+.av-btn svg{width:13px;height:13px;flex-shrink:0;}
+.av-name{text-align:center;margin-top:9px;font-size:.74rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--neon);}
+.av-tag{text-align:center;font-size:.64rem;color:var(--muted);letter-spacing:.1em;margin-top:3px;}
+section{padding:5rem 2rem;max-width:1100px;margin:0 auto;}
+.section-label{display:inline-block;color:var(--neon);font-size:.78rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin-bottom:.75rem;}
+.section-title{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;line-height:1.15;margin-bottom:1rem;}
+.section-sub{color:var(--muted);font-size:1.05rem;line-height:1.7;max-width:620px;margin-bottom:3rem;}
+.divider{height:1px;background:linear-gradient(90deg,transparent,rgba(192,132,252,.2),transparent);margin:0;}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;}
+.about-text p{color:var(--muted);line-height:1.8;margin-bottom:1rem;}
+.about-text strong{color:var(--text);}
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;}
+.stat-card{background:var(--bg3);border:1px solid rgba(192,132,252,.15);border-radius:12px;padding:1.5rem;text-align:center;}
+.stat-number{font-size:2.2rem;font-weight:900;background:linear-gradient(135deg,var(--neon),var(--neon2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.stat-label{font-size:.82rem;color:var(--muted);margin-top:.25rem;}
+#leistungen{background:var(--bg2);max-width:100%;padding:5rem 2rem;}
+#leistungen>.inner{max-width:1100px;margin:0 auto;}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;}
+.service-card{background:var(--bg3);border:1px solid rgba(192,132,252,.12);border-radius:16px;padding:2rem;transition:border-color .3s,transform .3s;}
+.service-card:hover{border-color:rgba(192,132,252,.4);transform:translateY(-4px);}
+.service-icon{font-size:2.2rem;margin-bottom:1rem;}
+.service-card h3{font-size:1.15rem;font-weight:700;margin-bottom:.6rem;}
+.service-card p{color:var(--muted);font-size:.9rem;line-height:1.7;}
+.equipment-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.25rem;margin-top:2.5rem;}
+.eq-card{background:var(--bg2);border:1px solid rgba(192,132,252,.1);border-radius:12px;padding:1.5rem 1.25rem;display:flex;align-items:center;gap:1rem;}
+.eq-icon{font-size:1.8rem;flex-shrink:0;}
+.eq-info h4{font-size:.95rem;font-weight:700;}
+.eq-info p{font-size:.8rem;color:var(--muted);}
+.photo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2rem;}
+.photo-slot{aspect-ratio:4/3;border-radius:12px;overflow:hidden;border:1px solid rgba(192,132,252,.25);background:var(--bg3);cursor:pointer;}
+.photo-slot img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s,opacity .3s;}
+.photo-slot:hover img{transform:scale(1.04);opacity:.88;}
+#videos{background:var(--bg2);max-width:100%;padding:5rem 2rem;}
+#videos>.inner{max-width:1100px;margin:0 auto;}
+.videos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;}
+.video-slot{position:relative;padding-bottom:56.25%;height:0;border-radius:16px;overflow:hidden;border:1px solid rgba(192,132,252,.15);background:#000;}
+.video-slot video{position:absolute;top:0;left:0;width:100%;height:100%;display:block;background:#000;}
+.cta-section{background:linear-gradient(135deg,rgba(192,132,252,.12) 0%,rgba(129,140,248,.08) 100%);border:1px solid rgba(192,132,252,.2);border-radius:24px;padding:4rem 3rem;text-align:center;}
+.cta-section h2{font-size:clamp(1.8rem,4vw,2.5rem);font-weight:800;margin-bottom:1rem;}
+.cta-section p{color:var(--muted);font-size:1.05rem;margin-bottom:2rem;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.7;}
+.contact-info{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;margin-top:2rem;}
+.contact-item{display:flex;align-items:center;gap:.6rem;color:var(--muted);font-size:.9rem;}
+.contact-item span{color:var(--neon);font-size:1.2rem;}
+footer{border-top:1px solid rgba(192,132,252,.1);padding:2rem;text-align:center;color:var(--muted);font-size:.82rem;}
+.footer-logo{font-size:1.2rem;font-weight:800;letter-spacing:.1em;background:linear-gradient(135deg,var(--neon),var(--neon2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:.5rem;}
+#lb-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:9999;align-items:center;justify-content:center;}
+#lb-overlay.active{display:flex;}
+#lb-img{max-width:90vw;max-height:88vh;border-radius:12px;box-shadow:0 0 60px rgba(192,132,252,.3);}
+#lb-close{position:absolute;top:1.2rem;right:1.5rem;font-size:2rem;color:#fff;cursor:pointer;opacity:.7;line-height:1;user-select:none;}
+#lb-close:hover{opacity:1;}
+#lb-prev,#lb-next{position:absolute;top:50%;transform:translateY(-50%);font-size:2.5rem;color:#fff;cursor:pointer;opacity:.6;user-select:none;padding:.5rem 1rem;}
+#lb-prev:hover,#lb-next:hover{opacity:1;}
+#lb-prev{left:1rem;}#lb-next{right:1rem;}
+#lb-caption{position:absolute;bottom:1rem;left:0;right:0;text-align:center;color:rgba(255,255,255,.6);font-size:.85rem;}
+@media(max-width:860px){.hero{flex-direction:column-reverse;text-align:center;padding:90px 5% 3rem;gap:2rem;}.hero-text{max-width:100%;}.hero p{margin:0 auto 2rem;}.hero-btns{justify-content:center;}:root{--av:190px;}nav ul{display:none;}}
+@media(max-width:700px){.about-grid{grid-template-columns:1fr;}.photo-grid{grid-template-columns:repeat(2,1fr);}.cta-section{padding:2.5rem 1.5rem;}}
+@media(max-width:480px){:root{--av:165px;}}
+</style>
 </head>
 <body>
-  <!-- ===== VIDEO BIENVENIDA ===== -->
-<section id="bienvenida" style="width:100%;background:#000;display:flex;justify-content:center;align-items:center;padding:0;margin:0;position:relative;">
-  <video
-    id="welcome-video"
-    autoplay
-    muted
-    playsinline
-    style="width:100%;max-width:960px;display:block;"
-    onended="document.getElementById('welcome-video').style.display='none';document.getElementById('bienvenida').style.display='none';"
-  >
-    <source src="videos/bienvenida.mp4" type="video/mp4">
-  </video>
-</section>
-<nav><div class="logo">DJJCM</div><ul><li><a href="#about">Über mich</a></li><li><a href="#leistungen">Leistungen</a></li><li><a href="#equipment">Equipment</a></li><li><a href="#videos">Videos</a></li><li><a href="#musik">Musik</a></li><li><a href="#kontakt">Kontakt</a></li></ul></nav>
-<section class="hero" id="home"><div class="hero-tag">❆ DJ für Hochzeiten &amp; Private Events</div><h1>DJJCM</h1><p>Professioneller DJ aus Nürnberg — für unvergessliche Hochzeiten, exklusive Privatevents und mitreißende Après-Ski-Nächte in den Alpen.</p><div class="hero-btns"><a href="#kontakt" class="btn-primary">Jetzt anfragen →</a><a href="#videos" class="btn-outline">Videos ansehen</a></div></section>
-<div class="divider"></div>
-<section id="about"><div class="about-grid"><div class="about-text"><span class="section-label">❆ Über mich</span><h2 class="section-title">Musik, die Momente unvergesslich macht</h2><p>Ich bin ein leidenschaftlicher DJ mit eigenem professionellem Equipment — spezialisiert auf <strong>Hochzeiten und private Feiern</strong> im Großraum Nürnberg und ganz Deutschland.</p><p>Von romantischen Zeremonien bis zu energiegeladenen Tanzflächen passe ich meine Sets individuell an euren Stil an.</p><p>In den Wintermonaten bringe ich meine Energie in die österreichischen Alpen — <strong>Après-Ski der Extraklasse</strong>.</p></div><div class="stats-grid"><div class="stat-card"><div class="stat-number">50+</div><div class="stat-label">Events gespielt</div></div><div class="stat-card"><div class="stat-number">5★</div><div class="stat-label">Kundenbewertung</div></div><div class="stat-card"><div class="stat-number">100%</div><div class="stat-label">Eigenes Equipment</div></div><div class="stat-card"><div class="stat-number">250km</div><div class="stat-label">Radius Nürnberg</div></div></div></div></section>
-<div class="divider"></div>
-<section id="leistungen"><div class="inner"><span class="section-label">❆ Leistungen</span><h2 class="section-title">Was ich für euch anbiete</h2><p class="section-sub">Vom ersten Tanz bis zur letzten Runde — ich sorge dafür, dass eure Feier läuft.</p><div class="services-grid"><div class="service-card"><div class="service-icon">💍</div><h3>Hochzeiten</h3><p>Individuell abgestimmt auf euren großen Tag. Von der Zeremonie bis zum letzten Tanz.</p></div><div class="service-card"><div class="service-icon">🎉</div><h3>Private Events</h3><p>Geburtstage, Jubiläen, Firmenfeiern — die richtige Energie für jeden Anlass.</p></div><div class="service-card"><div class="service-icon">⛷️</div><h3>Après-Ski</h3><p>Mehrere Winter Erfahrung in den österreichischen Alpen.</p></div></div></div></section>
-<div class="divider"></div>
-<section id="equipment"><span class="section-label">❆ Equipment</span><h2 class="section-title">Professionelles Eigenes Setup</h2><p class="section-sub">Kein Verleih, kein Stress — ich bringe alles mit.</p><div class="equipment-grid"><div class="eq-card"><div class="eq-icon">🔊</div><div class="eq-info"><h4>Professionelles Audio</h4><p>Hochwertiges PA-System</p></div></div><div class="eq-card"><div class="eq-icon">💡</div><div class="eq-info"><h4>Lichtanlage</h4><p>LED-Show &amp; Moving Heads</p></div></div><div class="eq-card"><div class="eq-icon">🎤</div><div class="eq-info"><h4>Mikrofone</h4><p>Drahtlos, für Moderation</p></div></div><div class="eq-card"><div class="eq-icon">💨</div><div class="eq-info"><h4>Nebelmaschine</h4><p>Perfekte Tanzflächen-Atmosphäre</p></div></div><div class="eq-card"><div class="eq-icon">🋚️</div><div class="eq-info"><h4>DJ-Controller</h4><p>Profi-Setup für nahtlose Übergänge</p></div></div><div class="eq-card"><div class="eq-icon">🚚</div><div class="eq-info"><h4>Alles inklusive</h4><p>Aufbau, Betrieb &amp; Abbau</p></div></div></div></section>
-<section id="musik" style="padding-bottom:5rem;">
-  <span class="section-label">✦ Musik &amp; Stil</span>
-  <h2 class="section-title" style="margin-bottom:2rem;">Mein Sound</h2>
 
-  <div class="music-section">
-    <p style="margin-bottom:1.5rem;">
-      Hip-Hop, R&amp;B, 80s, 90s, 2000er, Charts, House, Afrobeats, Latin y Party Classics.
-    </p>
+<nav>
+  <div class="logo">DJJCM</div>
+  <ul>
+    <li><a href="#about">Über mich</a></li>
+    <li><a href="#leistungen">Leistungen</a></li>
+    <li><a href="#equipment">Equipment</a></li>
+    <li><a href="#videos">Videos</a></li>
+    <li><a href="#kontakt">Kontakt</a></li>
+  </ul>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-text">
+    <div class="hero-tag">DJ für Hochzeiten &amp; Private Events</div>
+    <h1>DJJCM</h1>
+    <p>Professioneller DJ aus Nürnberg — für unvergessliche Hochzeiten, exklusive Privatevents und mitreißende Après-Ski-Nächte in den Alpen.</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/4915252822834?text=Hallo%20Carlos,%20ich%20suche%20einen%20DJ%20f%C3%BCr%20mein%20Event.%0ADatum:%20%0AOrt:%20%0AArt%20der%20Veranstaltung:%20" class="btn-primary" target="_blank">Jetzt per WhatsApp anfragen</a>
+      <a href="#videos" class="btn-outline">Videos ansehen</a>
     </div>
+  </div>
 
-    <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;">
-      <span>Hip-Hop</span>
-      <span>R&amp;B</span>
-      <span>80s</span>
-      <span>90s</span>
-      <span>2000er</span>
-      <span>Charts</span>
-      <span>House</span>
-      <span>Afrobeats</span>
-      <span>Latin</span>
-      <span>Party</span>
+  <div class="av-wrap">
+    <div class="av-ring">
+      <div class="av-inner">
+        <iframe
+          id="av-iframe"
+          src="https://app.heygen.com/embeds/1beb148230fb49d3803f371e63bf990d"
+          title="DJ Carlos Avatar"
+          frameborder="0"
+          allow="autoplay; encrypted-media; fullscreen"
+          allowfullscreen
+        ></iframe>
+        <div class="av-overlay" id="av-overlay">
+          <div class="av-hint">
+            <svg viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+            Klicken<br>für Sound
+          </div>
+        </div>
+      </div>
+      <div class="av-live"><span class="live-dot"></span>Live</div>
+    </div>
+    <button class="av-btn" id="av-btn">
+      <svg id="av-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+      <span id="av-label">Klicken für Sound</span>
+    </button>
+    <p class="av-name">DJ Carlos Martinez</p>
+    <p class="av-tag">Nürnberg · Wien · Worldwide</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="about">
+  <div class="about-grid">
+    <div class="about-text">
+      <span class="section-label">❆ Über mich</span>
+      <h2 class="section-title">Musik, die Momente unvergesslich macht</h2>
+      <p>Ich bin ein leidenschaftlicher DJ mit eigenem professionellem Equipment — spezialisiert auf <strong>Hochzeiten und private Feiern</strong> im Großraum Nürnberg und ganz Deutschland.</p>
+      <p>Von romantischen Zeremonien bis zu energiegeladenen Tanzflächen passe ich meine Sets individuell an euren Stil an.</p>
+      <p>In den Wintermonaten bringe ich meine Energie in die österreichischen Alpen — <strong>Après-Ski der Extraklasse</strong>.</p>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-card"><div class="stat-number">50+</div><div class="stat-label">Events gespielt</div></div>
+      <div class="stat-card"><div class="stat-number">5★</div><div class="stat-label">Kundenbewertung</div></div>
+      <div class="stat-card"><div class="stat-number">100%</div><div class="stat-label">Eigenes Equipment</div></div>
+      <div class="stat-card"><div class="stat-number">250km</div><div class="stat-label">Radius Nürnberg</div></div>
     </div>
   </div>
 </section>
-  <section id="galerie">
-  <div style="max-width:1100px;margin:0 auto;padding:0 2rem 5rem;">
-    <span class="section-label">✦ Impressionen</span>
-    <h2 class="section-title" style="margin-bottom:0.5rem;">Einblicke in meine Events</h2>
-    <p style="color:var(--muted);margin-bottom:2rem;">Fotos von Hochzeiten, Aufbauten und Lichtatmosphäre</p>
-    <div class="photo-grid">
-      <div class="photo-slot"><a href="fotos/setup-open-air.jpg" target="_blank" rel="noopener noreferrer"><img src="fotos/setup-open-air.jpg" alt="DJ Setup Open Air"></a></div>
-      <div class="photo-slot"><a href="fotos/dj-controller.jpeg" target="_blank" rel="noopener noreferrer"><img src="fotos/dj-controller.jpeg" alt="DJ Controller"></a></div>
-      <div class="photo-slot"><a href="fotos/iglesia-luces.jpg" target="_blank" rel="noopener noreferrer"><img src="fotos/iglesia-luces.jpg" alt="Kirche mit Lichtatmosphäre"></a></div>
-      <div class="photo-slot"><a href="fotos/dancefloor.jpg" target="_blank" rel="noopener noreferrer"><img src="fotos/dancefloor.jpg" alt="Dancefloor"></a></div>
-      <div class="photo-slot"><a href="fotos/event-ubersicht.jpeg" target="_blank" rel="noopener noreferrer"><img src="fotos/event-ubersicht.jpeg" alt="Event Übersicht"></a></div>
-      <div class="photo-slot"><a href="fotos/hochzeit-stimmung.jpeg" target="_blank" rel="noopener noreferrer"><img src="fotos/hochzeit-stimmung.jpeg" alt="Hochzeit Stimmung"></a></div>
+
+<div class="divider"></div>
+
+<section id="leistungen">
+  <div class="inner">
+    <span class="section-label">❆ Leistungen</span>
+    <h2 class="section-title">Was ich für euch anbiete</h2>
+    <p class="section-sub">Vom ersten Tanz bis zur letzten Runde — ich sorge dafür, dass eure Feier läuft.</p>
+    <div class="services-grid">
+      <div class="service-card"><div class="service-icon">💍</div><h3>Hochzeiten</h3><p>Individuell abgestimmt auf euren großen Tag. Von der Zeremonie bis zum letzten Tanz.</p></div>
+      <div class="service-card"><div class="service-icon">🎉</div><h3>Private Events</h3><p>Geburtstage, Jubiläen, Firmenfeiern — die richtige Energie für jeden Anlass.</p></div>
+      <div class="service-card"><div class="service-icon">⛷️</div><h3>Après-Ski</h3><p>Mehrere Winter Erfahrung in den österreichischen Alpen.</p></div>
     </div>
-  
+  </div>
 </section>
-  <section id="videos">
- <div class="inner"><span class="section-label">✦ Videos</span><h2 class="section-title">Sieh mich in Aktion</h2><p class="section-sub">Clips von meinen Events — ein Eindruck von Atmosphäre, Sound und Energie.</p><div class="videos-grid"><div><div class="video-placeholder"><video controls preload="metadata" poster="fotos/dancefloor.jpg" playsinline style="width:100%;height:100%;object-fit:cover;border-radius:16px;display:block;"><source src="videos/event-highlight.mp4" type="video/mp4"></video></div><h3 style="margin-top:1rem;">🎉 Event Highlights</h3><p style="color:var(--muted);margin-top:.5rem;">Stimmung, Energie und unvergessliche Momente</p></div><div><div class="video-placeholder"><video controls preload="metadata" poster="fotos/dj-controller.jpeg" playsinline style="width:100%;height:100%;object-fit:cover;border-radius:16px;display:block;"><source src="videos/equipment-setup.mp4" type="video/mp4"></video></div><h3 style="margin-top:1rem;">🎛️ Equipment Setup</h3><p style="color:var(--muted);margin-top:.5rem;">Professionelles DJ-Setup im Einsatz</p></div><div><div class="video-placeholder"><video controls preload="metadata" poster="fotos/event-ubersicht.jpeg" playsinline style="width:100%;height:100%;object-fit:cover;border-radius:16px;display:block;"><source src="videos/spezialeffekte.mp4" type="video/mp4"></video></div><h3 style="margin-top:1rem;">✨ Spezialeffekte</h3><p style="color:var(--muted);margin-top:.5rem;">Nebelmaschine, Licht und Atmosphäre</p></div></div></div></section> 
-  <div class="divider"></div>
+
+<div class="divider"></div>
+
+<section id="equipment">
+  <span class="section-label">❆ Equipment</span>
+  <h2 class="section-title">Professionelles Eigenes Setup</h2>
+  <p class="section-sub">Kein Verleih, kein Stress — ich bringe alles mit.</p>
+  <div class="equipment-grid">
+    <div class="eq-card"><div class="eq-icon">🔊</div><div class="eq-info"><h4>Professionelles Audio</h4><p>Hochwertiges PA-System</p></div></div>
+    <div class="eq-card"><div class="eq-icon">💡</div><div class="eq-info"><h4>Lichtanlage</h4><p>LED-Show &amp; Moving Heads</p></div></div>
+    <div class="eq-card"><div class="eq-icon">🎤</div><div class="eq-info"><h4>Mikrofone</h4><p>Drahtlos, für Moderation</p></div></div>
+    <div class="eq-card"><div class="eq-icon">💨</div><div class="eq-info"><h4>Nebelmaschine</h4><p>Perfekte Tanzflächen-Atmosphäre</p></div></div>
+    <div class="eq-card"><div class="eq-icon">🎛️</div><div class="eq-info"><h4>DJ-Controller</h4><p>Profi-Setup für nahtlose Übergänge</p></div></div>
+    <div class="eq-card"><div class="eq-icon">🚚</div><div class="eq-info"><h4>Alles inklusive</h4><p>Aufbau, Betrieb &amp; Abbau</p></div></div>
+  </div>
 </section>
-  <section id="kontakt" style="padding-bottom:5rem;">
+
+<div class="divider"></div>
+
+<div style="max-width:1100px;margin:0 auto;padding:0 2rem 5rem;">
+  <span class="section-label">❆ Impressionen</span>
+  <h2 class="section-title" style="margin-bottom:.5rem;">Einblicke in meine Events</h2>
+  <p style="color:var(--muted);font-size:.9rem;margin-bottom:1.5rem;">Fotos von Hochzeiten, Aufbauten und Lichtatmosphäre</p>
+  <div class="photo-grid">
+    <div class="photo-slot"><img src="foto1_setup_openair.jpg" alt="DJ Setup Open Air" loading="lazy"></div>
+    <div class="photo-slot"><img src="foto2_controller.jpg" alt="DJ Controller" loading="lazy"></div>
+    <div class="photo-slot"><img src="foto3_iglesia_luces.jpg" alt="Kirche mit Lichtatmosphäre" loading="lazy"></div>
+    <div class="photo-slot"><img src="foto4_dancefloor.jpg" alt="Dancefloor" loading="lazy"></div>
+    <div class="photo-slot"><img src="foto5_evento.jpg" alt="Event Übersicht" loading="lazy"></div>
+    <div class="photo-slot"><img src="foto6_iglesia2.jpg" alt="Hochzeit Stimmung" loading="lazy"></div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<section id="videos">
+  <div class="inner">
+    <span class="section-label">❆ Videos</span>
+    <h2 class="section-title">Sieh mich in Aktion</h2>
+    <p class="section-sub">Clips von meinen Events.</p>
+    <div class="videos-grid">
+      <div class="video-slot">
+        <video controls playsinline preload="metadata" poster="foto1_setup_openair.jpg">
+          <source src="video1_evento.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="video-slot">
+        <video controls playsinline preload="metadata" poster="foto2_controller.jpg">
+          <source src="video2_equipo.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="video-slot">
+        <video controls playsinline preload="metadata" poster="foto4_dancefloor.jpg">
+          <source src="video3_pika.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="kontakt" style="padding-bottom:5rem;">
   <div class="cta-section">
     <h2>Bereit für euer unvergessliches Event? 🎉</h2>
-    <p>Schreibt mir jetzt – ich melde mich innerhalb von 24 Stunden.</p>
-
-    <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:1.5rem;">
-      <a class="btn-primary" href="https://wa.me/4915252822834?text=Hallo!%20Ich%20interessiere%20mich%20f%C3%BCr%20ein%20Event%20mit%20DJ." target="_blank" rel="noopener noreferrer">Jetzt anfragen</a>
-      <a class="btn-outline" href="#videos">Videos ansehen</a>
+    <p>Schreibt mir jetzt — ich melde mich innerhalb von 24 Stunden mit einem individuellen Angebot.</p>
+    <a href="mailto:jcmartinez7109@gmail.com" class="btn-primary">Angebot anfordern →</a>
+    <div class="contact-info">
+      <div class="contact-item"><span>📍</span>Nürnberg &amp; Umgebung (bis 250 km)</div>
+      <div class="contact-item"><span>📧</span>jcmartinez7109@gmail.com</div>
+      <div class="contact-item"><span>🎿</span>Winter: Après-Ski Österreich</div>
     </div>
   </div>
 </section>
@@ -306,59 +263,67 @@
 <footer>
   <div class="footer-logo">DJJCM</div>
   <p>© 2026 DJJCM · Nürnberg · Hochzeiten &amp; Private Events</p>
-</footer><div id="lb-overlay">...</div>
+</footer>
+
+<div id="lb-overlay">
+  <span id="lb-close">✕</span>
+  <span id="lb-prev">‹</span>
+  <img id="lb-img" src="" alt="">
+  <span id="lb-next">›</span>
+  <div id="lb-caption"></div>
+</div>
+
+<a href="https://wa.me/4915252822834?text=Hallo%20Carlos,%20ich%20suche%20einen%20DJ%20f%C3%BCr%20mein%20Event.%0ADatum:%20%0AOrt:%20%0AArt%20der%20Veranstaltung:%20" target="_blank" style="position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;padding:15px 20px;border-radius:50px;text-decoration:none;font-weight:bold;box-shadow:0 4px 10px rgba(0,0,0,.3);z-index:1000;display:flex;align-items:center;gap:8px;">💬 Jetzt schreiben</a>
+
 <script>
-const overlay = document.getElementById('lb-overlay');
-const lbImg = document.getElementById('lb-img');
-const lbCap = document.getElementById('lb-caption');
-const slots = Array.from(document.querySelectorAll('.photo-slot img'));
-let current = 0;
-function openLightbox(idx){
-  current = idx;
-  const img = slots[idx];  
-   lbImg.src = img.src;
-  lbCap.textContent = img.alt || '';
-  overlay.classList.add('active');
-  document.body.style.overflow = 'hidden';
- } 
-  window.openLightbox = openLightbox;
-function closeLightbox(){    
-  overlay.classList.remove('active');    
-   document.body.style.overflow = ''; 
-}
-function prev(){
-  openLightbox((current - 1 + slots.length) % slots.length);
- } 
-function next(){  
-  openLightbox((current + 1) % slots.length);
-}
-slots.forEach((img, i) => {  
-  img.parentElement.addEventListener('click', () => openLightbox(i));  
-});  
- document.getElementById('lb-close').addEventListener('click', closeLightbox); 
-document.getElementById('lb-prev').addEventListener('click', (e) => { e.stopPropagation(); prev(); });  
-document.getElementById('lb-next').addEventListener('click', (e) => { e.stopPropagation(); next(); });
-overlay.addEventListener('click', function(e){
-  if(e.target === overlay) closeLightbox();
-});
-document.addEventListener('keydown', e => {
-  if(!overlay.classList.contains('active')) return;
-  if(e.key === 'Escape') closeLightbox();
-  if(e.key === 'ArrowLeft') prev();
-  if(e.key === 'ArrowRight') next();
-});
+(function(){
+  var ov=document.getElementById('lb-overlay');
+  var img=document.getElementById('lb-img');
+  var cap=document.getElementById('lb-caption');
+  var slots=Array.from(document.querySelectorAll('.photo-slot img'));
+  var cur=0;
+  function open(i){cur=i;img.src=slots[i].src;cap.textContent=slots[i].alt||'';ov.classList.add('active');document.body.style.overflow='hidden';}
+  function close(){ov.classList.remove('active');document.body.style.overflow='';}
+  slots.forEach(function(el,i){el.parentElement.addEventListener('click',function(){open(i);});});
+  document.getElementById('lb-close').addEventListener('click',close);
+  document.getElementById('lb-prev').addEventListener('click',function(e){e.stopPropagation();open((cur-1+slots.length)%slots.length);});
+  document.getElementById('lb-next').addEventListener('click',function(e){e.stopPropagation();open((cur+1)%slots.length);});
+  ov.addEventListener('click',function(e){if(e.target===ov)close();});
+  document.addEventListener('keydown',function(e){if(!ov.classList.contains('active'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')open((cur-1+slots.length)%slots.length);if(e.key==='ArrowRight')open((cur+1)%slots.length);});
+})();
+
+(function(){
+  var overlay=document.getElementById('av-overlay');
+  var btn=document.getElementById('av-btn');
+  var label=document.getElementById('av-label');
+  var icon=document.getElementById('av-icon');
+  var iframe=document.getElementById('av-iframe');
+  var muted=true;
+  var SVG_MUTED='<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line>';
+  var SVG_SOUND='<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>';
+  function send(o){try{iframe.contentWindow.postMessage(o,'*');}catch(e){}}
+  function activate(){
+    muted=false;
+    iframe.style.pointerEvents='auto';
+    send({type:'setMute',muted:false});send({type:'unmute'});send({muted:false});
+    try{var v=iframe.contentDocument.querySelector('video');if(v){v.muted=false;v.play();}}catch(e){}
+    overlay.classList.add('off');
+    icon.innerHTML=SVG_SOUND;
+    label.textContent='Ton aktiv';
+  }
+  function deactivate(){
+    muted=true;
+    iframe.style.pointerEvents='none';
+    send({type:'setMute',muted:true});send({type:'mute'});
+    try{var v=iframe.contentDocument.querySelector('video');if(v)v.muted=true;}catch(e){}
+    overlay.classList.remove('off');
+    icon.innerHTML=SVG_MUTED;
+    label.textContent='Klicken für Sound';
+  }
+  overlay.addEventListener('click',activate);
+  btn.addEventListener('click',function(){muted?activate():deactivate();});
+})();
 </script>
-  <a class="whatsapp-float" href="https://wa.me/4915252822834?text=Hallo!%20Ich%20interessiere%20mich%20f%C3%BCr%20ein%20Event%20mit%20DJ." target="_blank">
-  <svg viewBox="0 0 32 32">
-    <path d="M19.11 17.19c-.29-.14-1.69-.83-1.95-.92-.26-.1-.45-.14-.64.14-.19.29-.74.92-.91 1.11-.17.19-.33.22-.62.07-.29-.14-1.2-.44-2.29-1.41-.85-.76-1.42-1.69-1.58-1.98-.17-.29-.02-.44.12-.58.13-.13.29-.33.43-.5.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.14-.64-1.55-.88-2.12-.23-.55-.47-.48-.64-.49h-.55c-.19 0-.5.07-.76.36s-1 1-.95 2.45c.05 1.45 1 2.85 1.14 3.05.14.19 1.97 3.02 4.77 4.24.67.29 1.19.46 1.6.59.67.21 1.27.18 1.75.11.53-.08 1.69-.69 1.93-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.33zM16.03 3.2c-7.08 0-12.82 5.74-12.82 12.82 0 2.26.59 4.46 1.7 6.39L3 29l6.77-1.78a12.76 12.76 0 0 0 6.26 1.69h.01c7.08 0 12.82-5.74 12.82-12.82S23.11 3.2 16.03 3.2z"/>
-  </svg>
-  <span>Jetzt schreiben</span>
-</a>
-  <a class="whatsapp-float" href="https://wa.me/4915252822834?text=Hallo!%20Ich%20interessiere%20mich%20f%C3%BCr%20ein%20Event%20mit%20DJ." target="_blank">
-  <svg viewBox="0 0 32 32">
-    <path d="M19.11 17.19c-.29-.14-1.69-.83-1.95-.92-.26-.1-.45-.14-.64.14-.19.29-.74.92-.91 1.11-.17.19-.33.22-.62.07-.29-.14-1.2-.44-2.29-1.41-.85-.76-1.42-1.69-1.58-1.98-.17-.29-.02-.44.12-.58.13-.13.29-.33.43-.5.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.14-.64-1.55-.88-2.12-.23-.55-.47-.48-.64-.49h-.55c-.19 0-.5.07-.76.36s-1 1-.95 2.45c.05 1.45 1 2.85 1.14 3.05.14.19 1.97 3.02 4.77 4.24.67.29 1.19.46 1.6.59.67.21 1.27.18 1.75.11.53-.08 1.69-.69 1.93-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.33zM16.03 3.2c-7.08 0-12.82 5.74-12.82 12.82 0 2.26.59 4.46 1.7 6.39L3 29l6.77-1.78a12.76 12.76 0 0 0 6.26 1.69h.01c7.08 0 12.82-5.74 12.82-12.82S23.11 3.2 16.03 3.2z"/>
-  </svg>
-  <span>Jetzt schreiben</span>
-</a>
+
 </body>
 </html>
