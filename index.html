@@ -15,11 +15,40 @@
     body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
 
     /* ===== INTRO VIDEO & SOUND BUTTON ===== */
-    #bienvenida { position: relative; }
-    #sound-btn {
+    #bienvenida {
+      width: 100%;
+      background: #000;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 3.5rem 2rem 2.5rem;
+      margin: 0;
+      position: relative;
+      min-height: 55vh;
+      gap: 1.5rem;
+    }
+    #bv-wrap {
+      position: relative;
+      width: min(70vw, 420px);
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 0 70px rgba(192,132,252,0.35), 0 0 0 3px rgba(192,132,252,0.2);
+      flex-shrink: 0;
+    }
+    #welcome-video {
       position: absolute;
-      bottom: 1.25rem;
-      right: 1.25rem;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+      display: block;
+    }
+    #sound-btn {
+      position: relative;
       z-index: 10;
       display: flex;
       align-items: center;
@@ -188,6 +217,7 @@
       .photo-grid { grid-template-columns:repeat(2,1fr); }
       .cta-section { padding:2.5rem 1.5rem; }
       .hero-trust { gap:1rem; }
+      #bv-wrap { width: min(82vw, 320px); }
       .whatsapp-float { right:14px; bottom:14px; padding:12px 15px; font-size:0.95rem; }
       .whatsapp-float span { display:none; }
     }
@@ -196,16 +226,17 @@
 <body>
 
   <!-- ===== INTRO VIDEO ===== -->
-  <section id="bienvenida" style="width:100%;background:#000;display:flex;justify-content:center;align-items:center;padding:0;margin:0;position:relative;">
-    <video
-      id="welcome-video"
-      autoplay
-      muted
-      playsinline
-      style="width:100%;max-width:960px;display:block;"
-    >
-      <source src="videos/bienvenida.mp4" type="video/mp4">
-    </video>
+  <section id="bienvenida">
+    <div id="bv-wrap">
+      <video
+        id="welcome-video"
+        autoplay
+        muted
+        playsinline
+      >
+        <source src="videos/bienvenida.mp4" type="video/mp4">
+      </video>
+    </div>
     <button id="sound-btn" aria-label="Sound aktivieren">
       <span id="sound-icon">🔇</span>
       <span id="sound-label">Klicken für Sound</span>
