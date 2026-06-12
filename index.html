@@ -298,6 +298,20 @@
       .whatsapp-float { right:14px; bottom:14px; padding:12px 15px; }
       .whatsapp-float span { display:none; }
     }
+
+    /* ===== SERVICES SECTION ===== */
+    #servicios {
+      padding: 6rem 0;
+      background: linear-gradient(135deg, rgba(102,126,234,0.05) 0%, rgba(118,75,162,0.05) 100%);
+    }
+    #servicios .service-card:hover {
+      transform: translateY(-10px);
+    }
+
+    /* ===== TECHNICAL RIDER SECTION ===== */
+    #equipo {
+      padding: 6rem 0;
+    }
   </style>
 </head>
 <body>
@@ -586,6 +600,87 @@
       </div>
     </div>
   </section>
+
+  <!-- ===== SERVICES ===== -->
+  <section id="servicios">
+    <div class="inner">
+      <span class="section-label">✦ Leistungen &amp; Events</span>
+      <h2 class="section-title">Events, die ich unvergesslich mache</h2>
+      <p class="section-sub">Spezialisiert auf einzigartige Atmosphären für jede Art von Feier</p>
+
+      <div class="services-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;margin-top:3rem;">
+
+        <!-- Hochzeit -->
+        <div class="service-card" style="background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);padding:2.5rem;border-radius:20px;text-align:center;transition:transform 0.3s;">
+          <div style="font-size:3.5rem;margin-bottom:1rem;">💒</div>
+          <h3 style="color:#fff;margin-bottom:1rem;">Hochzeit</h3>
+          <p style="color:rgba(255,255,255,0.9);line-height:1.6;">Ich mache Ihren besonderen Tag zu einem einzigartigen Erlebnis. Personalisierte Musik, perfekte Atmosphäre und Professionalität für Ihre Traumhochzeit.</p>
+        </div>
+
+        <!-- Geburtstag -->
+        <div class="service-card" style="background:linear-gradient(135deg,#f093fb 0%,#f5576c 100%);padding:2.5rem;border-radius:20px;text-align:center;transition:transform 0.3s;">
+          <div style="font-size:3.5rem;margin-bottom:1rem;">🎂</div>
+          <h3 style="color:#fff;margin-bottom:1rem;">Geburtstag</h3>
+          <p style="color:rgba(255,255,255,0.9);line-height:1.6;">Unvergessliche Feiern mit der besten Musik, Licht und Energie. Von intimen Geburtstagen bis zu großen Festen.</p>
+        </div>
+
+        <!-- Firmenveranstaltung -->
+        <div class="service-card" style="background:linear-gradient(135deg,#4facfe 0%,#00f2fe 100%);padding:2.5rem;border-radius:20px;text-align:center;transition:transform 0.3s;">
+          <div style="font-size:3.5rem;margin-bottom:1rem;">🏢</div>
+          <h3 style="color:#fff;margin-bottom:1rem;">Firmenveranstaltung</h3>
+          <p style="color:rgba(255,255,255,0.9);line-height:1.6;">Professionalität und Eleganz für Firmenevents, Produktlaunches, Konferenzen und Betriebsfeiern.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ===== TECHNICAL RIDER ===== -->
+  <section id="equipo">
+    <div class="inner">
+      <span class="section-label">✦ Technical Rider</span>
+      <h2 class="section-title">Professionelles Equipment</h2>
+      <p class="section-sub">Modernste Technik für höchste Qualität bei Ihrem Event</p>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;margin-top:3rem;">
+
+        <div style="background:rgba(255,255,255,0.05);padding:2rem;border-radius:12px;border-left:4px solid #667eea;">
+          <h4 style="color:#667eea;margin-bottom:1rem;">🔊 Sound</h4>
+          <p style="color:var(--muted);">Professionelles High-Fidelity-Audiosystem</p>
+        </div>
+
+        <div style="background:rgba(255,255,255,0.05);padding:2rem;border-radius:12px;border-left:4px solid #764ba2;">
+          <h4 style="color:#764ba2;margin-bottom:1rem;">💡 Licht</h4>
+          <p style="color:var(--muted);">Intelligente LED-Beleuchtung und dynamische Effekte</p>
+        </div>
+
+        <div style="background:rgba(255,255,255,0.05);padding:2rem;border-radius:12px;border-left:4px solid #f093fb;">
+          <h4 style="color:#f093fb;margin-bottom:1rem;">🎥 Video</h4>
+          <p style="color:var(--muted);">Projektion und Bildschirme für Events</p>
+        </div>
+
+        <div style="background:rgba(255,255,255,0.05);padding:2rem;border-radius:12px;border-left:4px solid #4facfe;">
+          <h4 style="color:#4facfe;margin-bottom:1rem;">💨 Nebelmaschine</h4>
+          <p style="color:var(--muted);">Spezialeffekte mit Nebel und Dunst</p>
+        </div>
+
+        <div style="background:rgba(255,255,255,0.05);padding:2rem;border-radius:12px;border-left:4px solid #00f2fe;">
+          <h4 style="color:#00f2fe;margin-bottom:1rem;">🎤 Mikrofone</h4>
+          <p style="color:var(--muted);">Professionelle kabellose Mikrofone</p>
+        </div>
+
+        <div style="background:rgba(255,255,255,0.05);padding:2rem;border-radius:12px;border-left:4px solid #f5576c;">
+          <h4 style="color:#f5576c;margin-bottom:1rem;">🎛️ DJ-Pult</h4>
+          <p style="color:var(--muted);">Professionelles Pioneer/CDJ-Setup</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
 
   <!-- ===== VIDEOS ===== -->
   <section id="videos">
