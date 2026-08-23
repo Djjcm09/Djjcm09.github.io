@@ -235,6 +235,16 @@
     .video-placeholder { background: var(--bg3); border: 1px solid var(--border); border-radius: 20px; aspect-ratio: 16/9; overflow: hidden; position: relative; transition: border-color 0.3s, box-shadow 0.3s; }
     .video-placeholder:hover { border-color: rgba(192,132,252,0.38); box-shadow: 0 10px 44px rgba(192,132,252,0.1); }
 
+    /* ===== DRIVE VIDEO LINKS (mobilfreundlich) ===== */
+    .drive-videos-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap: 1.5rem; margin-top: 3.5rem; }
+    .drive-card { display: flex; align-items: center; gap: 1.25rem; background: linear-gradient(150deg,var(--bg3),#131330); border: 1px solid var(--border); border-radius: 20px; padding: 1.75rem 2rem; text-decoration: none; transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s; }
+    .drive-card:hover { border-color: var(--border-h); transform: translateY(-4px); box-shadow: 0 14px 40px rgba(192,132,252,0.14); }
+    .drive-play { flex-shrink: 0; width: 3.4rem; height: 3.4rem; border-radius: 50%; background: linear-gradient(135deg,var(--neon),var(--neon2)); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 18px rgba(192,132,252,0.4); }
+    .drive-play svg { width: 1.25rem; height: 1.25rem; fill: #fff; margin-left: 0.15rem; }
+    .drive-info h3 { font-size: 1.02rem; font-weight: 700; margin-bottom: 0.3rem; }
+    .drive-info p { color: var(--muted); font-size: 0.85rem; line-height: 1.6; }
+    .drive-info .drive-cta { color: var(--neon); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em; margin-top: 0.5rem; display: inline-block; }
+
     /* ===== GALERIE ===== */
     .photo-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.1rem; margin-top: 2rem; }
     .photo-slot { aspect-ratio: 4/3; background: var(--bg3); border: 1px solid rgba(192,132,252,0.14); border-radius: 16px; display: flex; flex-direction: column; align-items: center; justify-content: center; overflow: hidden; position: relative; cursor: pointer; transition: border-color 0.3s; }
@@ -681,6 +691,34 @@
           <h3 style="margin-top:1rem;">🎵 Live Session 2</h3>
           <p style="color:var(--muted);margin-top:.5rem;">DJ JCM in action</p>
         </div>
+      </div>
+
+      <!-- Weitere Videos (Google Drive) — öffnen in neuem Tab, funktioniert überall -->
+      <div class="drive-videos-grid">
+        <a class="drive-card" href="https://drive.google.com/file/d/1HBqeDCGCwzg1kFjUEoY64qwtSGtY3n7j/view" target="_blank" rel="noopener noreferrer">
+          <span class="drive-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          <span class="drive-info">
+            <h3>🎉 DJJCM Live Event 1</h3>
+            <p>Stimmung, Energie und unvergessliche Momente live</p>
+            <span class="drive-cta">Video ansehen →</span>
+          </span>
+        </a>
+        <a class="drive-card" href="https://drive.google.com/file/d/1xtgNAZrIfrMFkiHlYb6uu0IM2zVeaSv7/view" target="_blank" rel="noopener noreferrer">
+          <span class="drive-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          <span class="drive-info">
+            <h3>🎛️ DJJCM Live Event 2</h3>
+            <p>Professionelles DJ-Setup und Party-Atmosphäre</p>
+            <span class="drive-cta">Video ansehen →</span>
+          </span>
+        </a>
+        <a class="drive-card" href="https://drive.google.com/file/d/17t3byEliu9MSczckvy5rvar5di9bB_Za/view" target="_blank" rel="noopener noreferrer">
+          <span class="drive-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          <span class="drive-info">
+            <h3>✨ DJJCM bei Vini Panini</h3>
+            <p>Live-Musik, Licht und Atmosphäre hautnah erleben</p>
+            <span class="drive-cta">Video ansehen →</span>
+          </span>
+        </a>
       </div>
     </div>
   </section>
