@@ -228,6 +228,10 @@
     #videos { background: var(--bg2); max-width: 100%; padding: 6rem 2rem; }
     #videos > .inner { max-width: 1100px; margin: 0 auto; }
     .videos-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); gap: 1.75rem; }
+    .videos-local-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 1.75rem; margin-bottom: 3.5rem; }
+    .video-local { background: var(--bg3); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; position: relative; transition: border-color 0.3s, box-shadow 0.3s; }
+    .video-local:hover { border-color: rgba(192,132,252,0.38); box-shadow: 0 10px 44px rgba(192,132,252,0.1); }
+    .video-local video { display: block; width: 100%; aspect-ratio: 9/16; object-fit: cover; background: #000; }
     .video-placeholder { background: var(--bg3); border: 1px solid var(--border); border-radius: 20px; aspect-ratio: 16/9; overflow: hidden; position: relative; transition: border-color 0.3s, box-shadow 0.3s; }
     .video-placeholder:hover { border-color: rgba(192,132,252,0.38); box-shadow: 0 10px 44px rgba(192,132,252,0.1); }
 
@@ -303,6 +307,7 @@
       #bienvenida { padding-top:5.5rem; }
       #bv-wrap { width:min(82vw,320px); }
       .music-section { padding:2.25rem 1.5rem; }
+      .videos-local-grid { grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:1.1rem; margin-bottom:2.5rem; }
       .whatsapp-float { right:14px; bottom:14px; padding:12px 15px; }
       .whatsapp-float span { display:none; }
     }
@@ -609,56 +614,38 @@
       <span class="section-label">✦ Videos</span>
       <h2 class="section-title">Sehen Sie mich in Aktion</h2>
       <p class="section-sub">Clips von meinen Events — ein echter Eindruck von Atmosphäre, Sound und Energie.</p>
-      <div class="videos-grid">
-        <div>
-          <div class="video-placeholder">
-            <iframe
-              width="100%"
-              height="100%"
-              src="https://drive.google.com/file/d/1HBqeDCGCwzg1kFjUEoY64qwtSGtY3n7j/preview"
-              title="DJJCM Live Event 1"
-              allow="autoplay"
-              allowfullscreen
-              loading="lazy"
-              style="border:0;border-radius:16px;display:block;">
-            </iframe>
-          </div>
-          <h3 style="margin-top:1rem;">🎉 DJJCM Live Event 1</h3>
-          <p style="color:var(--muted);margin-top:.5rem;">Stimmung, Energie und unvergessliche Momente live</p>
-        </div>
-        <div>
-          <div class="video-placeholder">
-            <iframe
-              width="100%"
-              height="100%"
-              src="https://drive.google.com/file/d/1xtgNAZrIfrMFkiHlYb6uu0IM2zVeaSv7/preview"
-              title="DJJCM Live Event 2"
-              allow="autoplay"
-              allowfullscreen
-              loading="lazy"
-              style="border:0;border-radius:16px;display:block;">
-            </iframe>
-          </div>
-          <h3 style="margin-top:1rem;">🎛️ DJJCM Live Event 2</h3>
-          <p style="color:var(--muted);margin-top:.5rem;">Professionelles DJ-Setup und Party-Atmosphäre</p>
-        </div>
-        <div>
-          <div class="video-placeholder">
-            <iframe
-              width="100%"
-              height="100%"
-              src="https://drive.google.com/file/d/17t3byEliu9MSczckvy5rvar5di9bB_Za/preview"
-              title="DJJCM bei Vini Panini"
-              allow="autoplay"
-              allowfullscreen
-              loading="lazy"
-              style="border:0;border-radius:16px;display:block;">
-            </iframe>
-          </div>
-          <h3 style="margin-top:1rem;">✨ DJJCM bei Vini Panini</h3>
-          <p style="color:var(--muted);margin-top:.5rem;">Live-Musik, Licht und Atmosphäre hautnah erleben</p>
-        </div>
 
+      <div class="videos-local-grid">
+        <div>
+          <div class="video-local">
+            <video controls playsinline preload="metadata">
+              <source src="videos/event-highlight.mp4" type="video/mp4">
+            </video>
+          </div>
+          <h3 style="margin-top:1rem;">🎉 Hochzeit – Tanzfläche live</h3>
+          <p style="color:var(--muted);margin-top:.5rem;">Stimmung, Energie und volle Tanzfläche — Blick vom DJ-Pult</p>
+        </div>
+        <div>
+          <div class="video-local">
+            <video controls playsinline preload="metadata">
+              <source src="videos/equipment-setup.mp4" type="video/mp4">
+            </video>
+          </div>
+          <h3 style="margin-top:1rem;">🎛️ Setup &amp; Licht im Saal</h3>
+          <p style="color:var(--muted);margin-top:.5rem;">Professioneller Aufbau mit Sound, Licht und Nebeleffekt</p>
+        </div>
+        <div>
+          <div class="video-local">
+            <video controls playsinline preload="metadata">
+              <source src="videos/spezialeffekte.mp4" type="video/mp4">
+            </video>
+          </div>
+          <h3 style="margin-top:1rem;">✨ Open-Air Party</h3>
+          <p style="color:var(--muted);margin-top:.5rem;">Lichtshow und Party-Atmosphäre unter freiem Himmel</p>
+        </div>
+      </div>
+
+      <div class="videos-grid">
         <!-- Video 4 - YouTube -->
         <div>
           <div class="video-placeholder">
