@@ -73,3 +73,13 @@ header{top:0}.preview{display:none}
 .music--editorial .music-note .textlink:hover{background:#444b40}
 @media(max-width:1000px){.music--editorial .music-grid h3{font-size:25px}.music--editorial .music-note{flex-wrap:wrap}.music--editorial .music-note p{flex-basis:40%}}
 @media(max-width:580px){.music.music--editorial{padding-top:42px;padding-bottom:42px}.music--editorial .sound-record{display:none}.music--editorial .music-grid{gap:12px;margin-top:22px}.music--editorial .music-grid article{padding:19px 20px}.music--editorial .music-grid h3{font-size:25px;margin:8px 0 14px}.music--editorial .music-note{align-items:stretch;gap:14px}.music--editorial .music-note p{flex:auto;max-width:none}.music--editorial .music-note .textlink{text-align:center}}
+
+/* One continuous repertoire panel, without separate cards. */
+.music--editorial.music--unified .music-grid{display:block;padding:4px 26px;background:linear-gradient(125deg,#343a34,#242a26);border:1px solid #535949;border-top:3px solid #bfa575;border-radius:8px}
+.music--editorial.music--unified .music-grid article:nth-child(n){display:grid;grid-template-columns:28px minmax(230px,.9fr) 2fr;align-items:center;gap:20px;padding:19px 0;background:none;border:0;border-bottom:1px solid #dfd1ac2b;border-radius:0;overflow:visible}
+.music--editorial.music--unified .music-grid article:last-child{border-bottom:0}
+.music--editorial.music--unified .music-grid article:after{display:none}
+.music--editorial.music--unified .music-grid h3{font-size:25px;margin:0;line-height:1.2}
+.music--editorial.music--unified .genre-tags{gap:7px}
+@media(max-width:1000px){.music--editorial.music--unified .music-grid article:nth-child(n){grid-template-columns:24px minmax(190px,.9fr) 1.5fr;gap:14px}.music--editorial.music--unified .music-grid h3{font-size:23px}}
+@media(max-width:650px){.music--editorial.music--unified .music-grid{padding:2px 20px}.music--editorial.music--unified .music-grid article:nth-child(n){grid-template-columns:22px minmax(0,1fr);gap:11px;padding:19px 0}.music--editorial.music--unified .genre-tags{grid-column:2}.music--editorial.music--unified .music-grid h3{font-size:24px}}
