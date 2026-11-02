@@ -83,3 +83,20 @@ header{top:0}.preview{display:none}
 .music--editorial.music--unified .genre-tags{gap:7px}
 @media(max-width:1000px){.music--editorial.music--unified .music-grid article:nth-child(n){grid-template-columns:24px minmax(190px,.9fr) 1.5fr;gap:14px}.music--editorial.music--unified .music-grid h3{font-size:23px}}
 @media(max-width:650px){.music--editorial.music--unified .music-grid{padding:2px 20px}.music--editorial.music--unified .music-grid article:nth-child(n){grid-template-columns:22px minmax(0,1fr);gap:11px;padding:19px 0}.music--editorial.music--unified .genre-tags{grid-column:2}.music--editorial.music--unified .music-grid h3{font-size:24px}}
+
+/* Give the music section a distinct visual presence. */
+.music.music--editorial.music--unified{position:relative;background:radial-gradient(ellipse at 92% 0%,#e3cc9d 0%,transparent 48%),linear-gradient(135deg,#f0e6d2,#e5d6b8);border-top:5px solid #aa8850;border-bottom:1px solid #bc9c63;padding-top:62px;padding-bottom:62px}
+.music--editorial.music--unified .heading .eyebrow{display:inline-block;background:#343a30;color:#ffe6ae;padding:7px 13px;border-radius:3px;letter-spacing:3px;font-size:11px}
+.music--editorial.music--unified .heading h2{font-size:clamp(39px,4.5vw,66px);color:#252b25;margin-top:17px}
+.music--editorial.music--unified>p{font-size:17px;color:#4b483e;max-width:760px}
+.music--editorial.music--unified .sound-record{width:118px;height:118px;box-shadow:0 0 0 9px #aa88501c,0 12px 28px #302c3326}
+.music--editorial.music--unified .sound-record:before{inset:29px}
+.music--editorial.music--unified .sound-record:after{inset:47px}
+.music--editorial.music--unified .music-grid{border:1px solid #c2a365;border-top:5px solid #c2a365;box-shadow:0 16px 36px #4d3b242b;margin-top:30px;background:linear-gradient(120deg,#30372e,#19231e)}
+.music--editorial.music--unified .music-grid h3{color:#f5d99d;font-size:27px}
+.music--editorial.music--unified .music-grid .eyebrow{font-size:12px;color:#dec18a}
+.music--editorial.music--unified .genre-tags span{background:#e8d6ae;color:#232b23;border:1px solid #f1dfb6;font-size:14px;font-weight:600;padding:5px 11px}
+.music--editorial.music--unified .music-note p{color:#4b483e;font-size:14px}
+.music--editorial.music--unified .music-note .textlink{padding:15px 21px;font-size:14px;font-weight:600;box-shadow:0 4px 12px #302c3318}
+@media(max-width:1000px){.music--editorial.music--unified .music-grid h3{font-size:24px}}
+@media(max-width:650px){.music.music--editorial.music--unified{padding-top:43px;padding-bottom:43px}.music--editorial.music--unified>p{font-size:16px}.music--editorial.music--unified .genre-tags span{font-size:14px;padding:5px 9px}.music--editorial.music--unified .music-grid h3{font-size:25px}}
